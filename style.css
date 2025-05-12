@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+:root{
+    /* colors */
+    --primary-color : #6059C9;
+    --secondary-color :  #bfbbe4;
+    --bg-color : #fffcf7;
+    --bg-secondary-color :#F5EFE0;
+    --white-color : #fff;
+    --gray-color : #475467;
+
+    /* fonts */
+    --font-family : 'Inter', sans-serif;
+
+
+
+}
