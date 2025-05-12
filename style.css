@@ -14,15 +14,35 @@ a {
 /* start variabls */
 :root {
   /* colors */
-  --primary-color: #6059c9;
-  --secondary-color: #bfbbe4;
   --bg-color: #fffcf7;
   --bg-secondary-color: #f5efe0;
+
+  --primary-color: #6059c9;
+  --secondary-color: #bfbbe4;
+  --black-color: #2b2b39;
+  --gray-color: #5f5f75;
   --white-color: #fff;
-  --gray-color: #475467;
 
   /* fonts */
   --font-family: "Inter", sans-serif;
+
+  /* padding */
+  --padding-05: 0.5rem;
+  --padding-1: 1rem;
+  --padding-2: 2rem;
+  --padding-3: 3rem;
+  --padding-4: 4rem;
+  --padding-5: 5rem;
+
+  /* margin */
+  --margin-05: 0.5rem;
+  --margin-1: 1rem;
+  --margin-2: 2rem;
+  --margin-3: 3rem;
+  --margin-4: 4rem;
+  --margin-5: 5rem;
+  --margin-6: 6rem;
+  --margin-7: 7rem;
 }
 /* end variabls */
 
@@ -30,12 +50,10 @@ a {
 html {
   scroll-behavior: smooth;
 }
-
-.container {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--black-color);
 }
 /* end components */
 
@@ -53,9 +71,146 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--secondary-color);
 }
-/* .page {
-  background-color: #f1f5f9;
-   height: 100vh; 
-} */
-
 /* end scroll  */
+
+/* start home section  */
+.home {
+  background-image: url(./assets/);
+}
+/* start header  */
+.home__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home__header__logo img {
+  width: 8.5rem;
+  height: 8.5rem;
+}
+.home__header__nav a {
+  color: var(--black-color);
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.home__header__nav a::before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 2px;
+  background-color: var(--primary-color);
+  bottom: 0;
+  left: -90%;
+  transition: 0.4s;
+}
+.home__header__nav a:hover {
+  color: var(--primary-color);
+
+}
+.home__header__nav a:hover::before {
+  left: 5%;
+}
+
+.home__header__nav input {
+  margin-left: var(--margin-1);
+  border-radius: 8px;
+  outline: none;
+  caret-color: var(--primary-color);
+  padding: var(--padding-05);
+  background-color: var(--bg-color);
+  border-color: var(--secondary-color);
+  width: 14rem;
+  transition: width 0.4s;
+}
+.home__header__nav input:focus {
+  border-color: var(--primary-color);
+  width: 16rem;
+}
+
+/* start body  */
+.home__body {
+  text-align: center;
+  margin-top: var(--margin-5);
+}
+.home__body__text h1 {
+  font-weight: bold;
+  font-size: 3.5rem;
+}
+.home__body__text p {
+  color: var(--gray-color);
+  font-size: 1.2rem;
+}
+.home__body__img {
+  max-width: 100%;
+  position: relative;
+  margin-top: var(--margin-7);
+}
+.home__body__img .img-bg {
+  max-width: 100%;
+}
+.home__body__img .image {
+  max-width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  transform: translate(-50%, -50%);
+}
+/* end home section  */
+
+/* start login section  */
+.login {
+  margin-top: var(--margin-5);
+  margin-bottom: var(--margin-5);
+  padding-top: var(--padding-5);
+  padding-bottom: var(--padding-5);
+}
+.login__left {
+  background-color: var(--primary-color);
+  padding: var(--padding-5);
+  color: var(--white-color);
+}
+.login__right {
+  background-color: var(--bg-secondary-color);
+  padding: var(--padding-5);
+  color: var(--primary-color);
+}
+.login__icon {
+  margin-bottom: var(--margin-3);
+}
+.login__h3,
+.login__p {
+  margin-bottom: var(--margin-2);
+}
+.login__h3 {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+.login__leftBtn,
+.login__rightBtn {
+  padding: var(--padding-05) var(--padding-1);
+  border: none;
+  border-radius: 6px;
+  transition: 0.4s;
+}
+.login__leftBtn {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+}
+.login__leftBtn:hover {
+  background-color: transparent;
+  border: 1px solid var(--white-color);
+  color: var(--white-color);
+}
+
+.login__rightBtn {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+.login__rightBtn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+/* end login section  */
