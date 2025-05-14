@@ -33,20 +33,27 @@
 .pagination a:hover,
 .pagination a.pagination-active {
   color: var(--white-color);
+  
 }
 
-.pagination a:hover::before,
-.pagination a.pagination-active::before {
+.pagination a:hover::before
+ {
   transform: scale(1);
+  background-color: var(--secondary-color);
+  
 }
 
 .pagination a.pagination-active {
   color: var(--white-color);
+  
 }
 
 .pagination a.pagination-active::before {
   transform: scale(1);
+  
 }
+
+
 
 .pagination-newer {
   margin-right: 50px;
