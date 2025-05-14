@@ -424,6 +424,16 @@ body {
 }
 /* end campaign  */
 
+/* start footer  */
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+.footer a {
+  color: var(--white-color);
+}
+/* end footer  */
+
 /* start animation */
 @keyframes bouncing {
   0%,
