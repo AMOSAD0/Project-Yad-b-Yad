@@ -7,6 +7,7 @@
 ul {
   list-style: none;
 }
+
 a {
   text-decoration: none;
 }
@@ -16,7 +17,6 @@ a {
   /* colors */
   --bg-color: #fffcf7;
   --bg-secondary-color: #f5efe0;
-
   --primary-color: #6059c9;
   --secondary-color: #bfbbe4;
   --black-color: #2b2b39;
@@ -44,33 +44,72 @@ a {
   --margin-6: 6rem;
   --margin-7: 7rem;
 }
+
 /* end variabls */
 
 /* start components */
 html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: var(--font-family);
   background-color: var(--bg-color);
   color: var(--black-color);
+
 }
+
+.font-black-600-30 {
+  color: var(--black-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.font-black-600-24{
+  color: var(--black-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+
+}
+
+.font-gray-400-16 {
+  color: var(--gray-color);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.font-black-500-16{
+color: var(--black-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.font-black-600-14 {
+  color: var(--black-color);
+  font-size: .8rem;
+  font-weight: 600;
+
+}
+
 /* end components */
 
 /* start scroll  */
 ::-webkit-scrollbar {
   width: 15px;
 }
+
 ::-webkit-scrollbar-track {
   background-color: white;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary-color);
   border-radius: 2px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--secondary-color);
 }
+
 /* end scroll  */
 
 /* start home section  */
@@ -78,6 +117,7 @@ body {
   position: relative;
   padding-bottom: var(--padding-3);
 }
+
 /* start header  */
 .home__header {
   /* position: fixed;
@@ -92,6 +132,7 @@ body {
   width: 8.5rem;
   height: 8.5rem;
 }
+
 .home__header__nav a {
   color: var(--black-color);
   font-size: 1.1rem;
@@ -109,6 +150,7 @@ body {
   left: -90%;
   transition: 0.4s;
 }
+
 .home__header__nav a:hover {
   color: var(--primary-color);
 }
@@ -127,10 +169,12 @@ body {
   pointer-events: none;
 }
 .home__header__nav__search__icon input {
+
   border-radius: 8px;
   outline: none;
   caret-color: var(--primary-color);
   padding: var(--padding-05);
+
   padding-left: 2.5rem;
   background-color: var(--bg-color);
   border-color: var(--secondary-color);
@@ -146,6 +190,7 @@ body {
   .home__header__nav {
     display: none;
   }
+
 }
 
 /* start body  */
@@ -153,22 +198,27 @@ body {
   text-align: center;
   margin-top: var(--margin-5);
 }
+
 .home__body__text h1 {
   font-weight: bold;
   font-size: 3.5rem;
 }
+
 .home__body__text p {
   color: var(--gray-color);
   font-size: 1.2rem;
 }
+
 .home__body__img {
   max-width: 100%;
   position: relative;
   margin-top: var(--margin-7);
 }
+
 .home__body__img .img-bg {
   max-width: 100%;
 }
+
 .home__body__img .image {
   max-width: 100%;
   position: absolute;
@@ -176,6 +226,7 @@ body {
   top: 43%;
   transform: translate(-50%, -50%);
 }
+
 @media (min-width: 768px) and (max-width: 1200px) {
   .home__body__img {
     max-width: 100%;
@@ -185,6 +236,7 @@ body {
     max-width: 80%;
   }
 }
+
 .home__go-down {
   position: absolute;
   bottom: -5px;
@@ -193,12 +245,14 @@ body {
   color: var(--primary-color);
   transition: 0.3s;
 }
+
 .home__go-down:hover {
   color: var(--secondary-color);
 }
 .home__go-down i {
   animation: bouncing 1.5s infinite;
 }
+
 /* end home section  */
 
 /* start login section  */
@@ -208,29 +262,35 @@ body {
   padding-top: var(--padding-5);
   padding-bottom: var(--padding-5);
 }
+
 .login__left {
   background-color: var(--primary-color);
   padding: var(--padding-5);
   color: var(--white-color);
   height: 550px;
 }
+
 .login__right {
   background-color: var(--bg-secondary-color);
   padding: var(--padding-5);
   color: var(--primary-color);
   height: 550px;
 }
+
 .login__icon {
   margin-bottom: var(--margin-3);
 }
+
 .login__h3,
 .login__p {
   margin-bottom: var(--margin-2);
 }
+
 .login__h3 {
   font-weight: bold;
   font-size: 2.5rem;
 }
+
 .login__leftBtn,
 .login__rightBtn {
   padding: var(--padding-05) var(--padding-1);
@@ -238,10 +298,12 @@ body {
   border-radius: 6px;
   transition: 0.4s;
 }
+
 .login__leftBtn {
   background-color: var(--white-color);
   color: var(--primary-color);
 }
+
 .login__leftBtn:hover {
   background-color: transparent;
   border: 1px solid var(--white-color);
@@ -252,11 +314,55 @@ body {
   background-color: var(--primary-color);
   color: var(--white-color);
 }
+
 .login__rightBtn:hover {
   background-color: transparent;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
+
+
+/* end login section  */
+
+/* start explore section */
+.size-card{
+  margin:0.2rem;
+  padding: 0;
+}
+
+.card-title{
+   word-wrap: break-word;
+   overflow: hidden;
+  max-height: 2em;
+  line-height: 1.8em;
+}
+
+.icon-card{
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.progress {
+  height: 0.5rem;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.progress::-webkit-progress-value {
+  background-color: var(--primary-color);
+}
+
+.progress::-webkit-progress-bar {
+  background-color: var(--secondary-color);
+}
+
+
+
+
+
+
+
+
 /* end login section  */
 
 /* Start campaign  */
@@ -309,8 +415,9 @@ body {
   100% {
     transform: translateY(0);
   }
+
   40%,
   60% {
     transform: translateY(-15px);
   }
-}
+
