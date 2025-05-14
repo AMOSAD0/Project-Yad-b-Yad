@@ -294,8 +294,6 @@ color: var(--black-color);
 
 /* start explore section */
 .size-card{
-  /* width: 22.35rem; */
-  /* min-width:  22.35rem; */
   margin:0.2rem;
   padding: 0;
 }
@@ -325,6 +323,9 @@ color: var(--black-color);
 .progress::-webkit-progress-bar {
   background-color: var(--secondary-color);
 }
+
+
+
 
 
 /* start animation */
