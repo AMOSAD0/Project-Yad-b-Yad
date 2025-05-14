@@ -32,11 +32,17 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- login signup css  -->
-    <link rel="stylesheet" href="log-sign.css" />
+    <!-- box icon  -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
     <!-- style sheet -->
     <link href="style.css" rel="stylesheet" />
+
+    <!-- login signup css  -->
+    <link rel="stylesheet" href="log-sign.css" />
   </head>
   <body>
     <!-- start home section  -->
@@ -50,27 +56,36 @@
             </a>
           </div>
 
-          <nav class="home__header__nav">
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Explore</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Campaigns</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-disabled="true">Profile</a>
-              </li>
-            </ul>
+          <nav class="home__header__nav" id="navbarNav">
+            <div class="menu-wrapper">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Explore</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Campaigns</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-disabled="true">Profile</a>
+                </li>
+              </ul>
+            </div>
           </nav>
 
           <div class="home__header__nav__search__icon">
             <i class="fa-solid fa-magnifying-glass search__icon"></i>
             <input type="search" placeholder="Search" />
           </div>
+
+          <button class="listBtn">
+            <i class="open bx bx-list-ul"></i>
+            <i class="close bx bxs-x-circle"></i>
+          </button>
         </header>
 
         <!-- start body  -->
@@ -201,12 +216,24 @@
     </section>
     <!-- end campaign -->
 
-    
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
+    <script>
+      // JavaScript for Dropdown Menu
+      window.addEventListener("load", function () {
+        let listBtn = document.querySelector(".listBtn");
+        let menuWrapper = document.querySelector(".menu-wrapper");
+
+        // Toggle the 'active' class on the menu wrapper
+        listBtn.addEventListener("click", function () {
+          menuWrapper.classList.toggle("active");
+
+          listBtn.classList.toggle("active");
+        });
+      });
+    </script>
   </body>
 </html>

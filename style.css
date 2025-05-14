@@ -44,7 +44,6 @@ a {
   --margin-6: 6rem;
   --margin-7: 7rem;
 }
-
 /* end variabls */
 
 /* start components */
@@ -68,19 +67,16 @@ body {
   font-size: 1.5rem;
   font-weight: 600;
 }
-
 .font-gray-400-16 {
   color: var(--gray-color);
   font-size: 1rem;
   font-weight: 400;
 }
-
 .font-black-500-16 {
   color: var(--black-color);
   font-size: 1rem;
   font-weight: 500;
 }
-
 .font-black-600-14 {
   color: var(--black-color);
   font-size: 0.8rem;
@@ -112,12 +108,16 @@ body {
 
 /* start header  */
 .home__header {
-  /* position: fixed;
-  top: 0; */
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  padding: 0 6rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  z-index: 5;
 }
 
 .home__header__logo img {
@@ -165,7 +165,6 @@ body {
   outline: none;
   caret-color: var(--primary-color);
   padding: var(--padding-05);
-
   padding-left: 2.5rem;
   background-color: var(--bg-color);
   border-color: var(--secondary-color);
@@ -177,16 +176,67 @@ body {
   width: 17rem;
 }
 
+.home__header .listBtn {
+  background-color: transparent;
+  display: none;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.home__header .listBtn i.open,
+.home__header .listBtn i.close {
+  display: block;
+}
+.home__header .listBtn i.close {
+  display: none;
+}
+
 @media (max-width: 991px) {
-  .home__header__nav {
+  .home__header .listBtn {
+    display: block;
+  }
+
+  .home__header nav .menu-wrapper {
+    position: absolute;
+    top: 7rem;
+    left: 0;
+    background-color: var(--bg-secondary-color);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: none;
+  }
+  .home__header nav .menu-wrapper.active {
+    display: flex;
+  }
+  /* 
+  .home__header .menu-wrapper ul {
+    flex-direction: column;
+    gap: 1rem;
+  } */
+  .home__header .listBtn i.open {
+    display: block;
+  }
+  .home__header .listBtn.active i.open {
+    display: none;
+  }
+
+  .home__header .listBtn i.close {
+    display: none;
+  }
+  .home__header .listBtn.active i.close {
+    display: block;
   }
 }
 
 /* start body  */
 .home__body {
   text-align: center;
-  margin-top: var(--margin-5);
+  margin-top: 12rem;
 }
 
 .home__body__text h1 {
@@ -236,6 +286,7 @@ body {
 .home__go-down:hover {
   color: var(--secondary-color);
 }
+
 .home__go-down i {
   animation: bouncing 1.5s infinite;
 }
@@ -328,13 +379,6 @@ body {
   height: 0.5rem;
   margin-bottom: 0;
   width: 100%;
-}
-
-.progress::-webkit-progress-value {
-  background-color: var(--primary-color);
-}
-.progress::-webkit-progress-bar {
-  background-color: var(--secondary-color);
 }
 /* end login section  */
 
