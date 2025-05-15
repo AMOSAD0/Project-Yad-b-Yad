@@ -1,0 +1,72 @@
+/* start logIn */
+/* .logIn {
+  background-color: var(--bg-secondary-color);
+} */
+.logIn__logo img {
+  width: 10rem;
+}
+
+.logIn__head {
+  color: var(--primary-color);
+}
+
+.logIn input {
+  background-color: var(--bg-color);
+}
+
+.logIn__btn {
+  padding: var(--padding-05) var(--padding-3);
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  transition: 0.4s;
+}
+.logIn__btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.logIn__register a {
+  color: var(--primary-color) !important;
+}
+.logIn__register a:hover {
+  color: var(--secondary-color) !important;
+}
+/* end logIn */
+
+/* start signUp */
+/* .signUp {
+  background-image: url(assets/image/singUp-img.jpg);
+  background-size: cover;
+  background-position: center center;
+} */
+.signUp__box {
+  background-color: transparent;
+  border: none;
+}
+.signUp__box input {
+  background-color: var(--bg-color);
+}
+
+.signUp__headSpan {
+  color: var(--primary-color);
+}
+
+.signUp__btn {
+  padding: var(--padding-05) var(--padding-2);
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  transition: 0.4s;
+}
+.signUp__btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.signUp__regiseter__icon i {
+  color: var(--primary-color);
+}
+/* end signUp */
