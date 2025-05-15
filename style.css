@@ -67,6 +67,21 @@ body {
   font-size: 1.5rem;
   font-weight: 600;
 }
+
+.font-black-600-20{
+  color: var(--black-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+
+}
+
+.font-black-600-18{
+  color: var(--black-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+
+}
+
 .font-gray-400-16 {
   color: var(--gray-color);
   font-size: 1rem;
