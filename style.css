@@ -395,6 +395,14 @@ body {
   margin-bottom: 0;
   width: 100%;
 }
+.progress::-webkit-progress-value {
+  background-color: var(--primary-color);
+}
+
+.progress::-webkit-progress-bar {
+  background-color: var(--secondary-color);
+}
+
 /* end login section  */
 
 /* Start campaign  */
@@ -465,3 +473,4 @@ body {
     transform: translateY(-15px);
   }
 
+}
