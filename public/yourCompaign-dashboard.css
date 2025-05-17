@@ -1,0 +1,76 @@
+/* start Dashboard */
+.dashboard {
+  margin-top: var(--margin-7);
+}
+
+.dashboard__active__header h2 {
+  color: var(--primary-color);
+}
+.dashboard__active__header button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  transition: 0.4s;
+}
+.dashboard__active__header button:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.dashboard__active__body span {
+  background-color: var(--primary-color);
+}
+
+.dashboard__active__card {
+  border: none;
+}
+/* end Dashboard */
+
+/* start your campaigns */
+.yourCampaigns {
+  margin-top: var(--margin-7);
+}
+.yourCampaigns__detailsheader h3 {
+  color: var(--primary-color);
+}
+.yourCampaigns__detailsheader p {
+  color: var(--gray-color);
+}
+.yourCampaigns__detailsheader__totalPrice {
+  color: var(--primary-color);
+}
+
+.yourCampaigns__container {
+  border: none;
+  box-shadow: 6px 6px 20px #eee;
+}
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+.yourCampaigns__container p {
+  color: var(--gray-color);
+}
+.yourCampaigns__container span {
+  color: var(--primary-color);
+}
+.yourCampaigns__container .raiseOf {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.investorList__header {
+  color: var(--primary-color);
+  margin-bottom: var(--margin-2);
+}
+.list-group-item {
+  border: none;
+  box-shadow: 6px 6px 20px #eee;
+  padding: var(--padding-2);
+  border-radius: 6px;
+}
+.list-group-item .price {
+  color: var(--primary-color);
+}
+/* end your campaigns */
