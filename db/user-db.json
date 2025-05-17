@@ -1,0 +1,57 @@
+{
+    "admin": [
+        {
+            "id": 1,
+            "name": "Ahmed Mossad",
+            "role": "admin",
+            "isActive": true,
+            "email": "ahmedadmin@example.com",
+            "password": "ahmed1234"
+        },
+        {
+            "id": 2,
+            "name": "Ashraf talaat",
+            "role": "admin",
+            "isActive": true,
+            "email": "ashrafadmin@example.com",
+            "password": "ashraf1234"
+        }
+    ],
+    "campaigners": [
+        {
+            "id": 1,
+            "name": "Ahmed Mossad",
+            "role": "campaigner",
+            "isActive": true,
+            "email": "ahmedcampaigner@example.com",
+            "password": "ahmed1234"
+        },
+        {
+            "id": 2,
+            "name": "Ashraf talaat",
+            "role": "campaigner",
+            "isActive": true,
+            "email": "ashrafcampaigner@example.com",
+            "password": "ashraf1234"
+        }
+    ],
+    "Backers": [
+        {
+            "id": 1,
+            "name": "Ahmed Mossad",
+            "role": "backer",
+            "isActive": true,
+            "email": "ahmedbacker@example.com",
+            "password": "ahmed1234"
+        },
+        {
+            "id": 2,
+            "name": "Ashraf talaat",
+            "role": "backer",
+            "isActive": true,
+            "email": "ashrafbacker@example.com",
+            "password": "ashraf1234"
+        }
+    ]
+
+}

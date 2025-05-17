@@ -1,0 +1,31 @@
+.sidebar {
+    width: 25%;
+    height: 100vh;
+    background-color: var(--bg-secondary-color);
+}
+
+.content {
+    display: none;
+}
+
+
+.nav-link:hover {
+    color: var(--white-color);
+    background-color: var(--secondary-color);
+}
+
+.active {
+    color: var(--white-color);
+    background-color: var(--primary-color) !important;
+}
+
+.popUp {
+    position: absolute;
+    background-color: var(--secondary-color);
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+
+}
