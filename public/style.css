@@ -80,6 +80,8 @@ body {
   font-size: 1.125rem;
   font-weight: 600;
 
+
+
 }
 
 .font-gray-400-16 {
@@ -92,6 +94,7 @@ body {
   font-size: 1rem;
   font-weight: 500;
 }
+
 .font-black-600-14 {
   color: var(--black-color);
   font-size: 0.8rem;
@@ -133,6 +136,10 @@ body {
   left: 0;
   background-color: var(--bg-color);
   z-index: 5;
+
+
+  box-shadow: 2px 2px 10px #eee;
+
 }
 
 .home__header__logo img {
@@ -291,11 +298,13 @@ body {
 }
 
 .home__go-down {
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translatex(-50%);
+
+  position: fixed;
+  bottom: 4rem;
+  right: 2.5rem;
   color: var(--primary-color);
+  transform: rotate(180deg) !important;
+
   transition: 0.3s;
 }
 .home__go-down:hover {
@@ -474,3 +483,4 @@ body {
   }
 
 }
+
