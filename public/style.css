@@ -68,16 +68,20 @@ body {
   font-weight: 600;
 }
 
-.font-black-600-20 {
+.font-black-600-20{
   color: var(--black-color);
   font-size: 1.25rem;
   font-weight: 600;
+
 }
 
-.font-black-600-18 {
+.font-black-600-18{
   color: var(--black-color);
   font-size: 1.125rem;
   font-weight: 600;
+
+
+
 }
 
 .font-gray-400-16 {
@@ -132,7 +136,10 @@ body {
   left: 0;
   background-color: var(--bg-color);
   z-index: 5;
+
+
   box-shadow: 2px 2px 10px #eee;
+
 }
 
 .home__header__logo img {
@@ -212,6 +219,7 @@ body {
   .home__header .listBtn {
     display: block;
   }
+
   .home__header nav .menu-wrapper {
     position: absolute;
     top: 7rem;
@@ -290,11 +298,13 @@ body {
 }
 
 .home__go-down {
+
   position: fixed;
   bottom: 4rem;
   right: 2.5rem;
   color: var(--primary-color);
   transform: rotate(180deg) !important;
+
   transition: 0.3s;
 }
 .home__go-down:hover {
@@ -401,6 +411,7 @@ body {
 .progress::-webkit-progress-bar {
   background-color: var(--secondary-color);
 }
+
 /* end login section  */
 
 /* Start campaign  */
@@ -470,4 +481,6 @@ body {
   60% {
     transform: translateY(-15px);
   }
+
 }
+

@@ -1,0 +1,115 @@
+{
+  "users": [
+    {
+      "id": "2",
+      "name": "Ahmed Mossad",
+      "role": "admin",
+      "isActive": true,
+      "email": "ahmedadmin@example.com",
+      "password": "ahmed1234"
+    },
+    {
+      "id": "4",
+      "name": "Ashraf talaat",
+      "role": "campaigner",
+      "isActive": true,
+      "isApproved": true,
+      "email": "ashrafcampaigner@example.com",
+      "password": "ashraf1234"
+    },
+    {
+      "id": "5",
+      "name": "Ahmed Mossad",
+      "role": "backer",
+      "isActive": true,
+      "email": "ahmedbacker@example.com",
+      "password": "ahmed1234"
+    },
+    {
+      "id": "6",
+      "name": "Ashraf talaat",
+      "role": "backer",
+      "isActive": true,
+      "email": "ashrafbacker@example.com",
+      "password": "ashraf1234"
+    },
+    {
+      "id": "7",
+      "name": "Ashraf talaat",
+      "role": "backer",
+      "isActive": false,
+      "email": "ashrafbacker@example.com",
+      "password": "ashraf1234"
+    },
+    {
+      "id": "8",
+      "name": "Ahmed Mossad",
+      "role": "campaigner",
+      "isActive": true,
+      "isApproved": false,
+      "email": "ashrafcampaigner@example.com",
+      "password": "ashraf1234"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "2",
+      "title": "helpppp",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, labore. Fugiat dolorum doloremque quibusdam neque eos consequuntur. Dignissimos quis numquam culpa odio sit qui maiores, deleniti nostrum alias voluptate mollitia.",
+      "creatorId": 1,
+      "goal": 1000,
+      "donate": 2,
+      "countDonations": 300,
+      "deadline": "2025-5-30",
+      "isApproved": true
+    },
+    {
+      "id": "4",
+      "title": "helpppp ashrsf",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, labore. Fugiat dolorum doloremque quibusdam neque eos consequuntur. Dignissimos quis numquam culpa odio sit qui maiores, deleniti nostrum alias voluptate mollitia.",
+      "creatorId": 2,
+      "goal": 3000,
+      "donate": 2,
+      "countDonations": 700,
+      "deadline": "2025-5-30",
+      "isApproved": true
+    },
+    {
+      "id": "5",
+      "title": "helpppp ashrsf 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, labore. Fugiat dolorum doloremque quibusdam neque eos consequuntur. Dignissimos quis numquam culpa odio sit qui maiores, deleniti nostrum alias voluptate mollitia.",
+      "creatorId": 2,
+      "goal": 3000,
+      "donate": 0,
+      "countDonations": 0,
+      "deadline": "2025-5-30",
+      "isApproved": true
+    }
+  ],
+  "pledges": [
+    {
+      "id": "1",
+      "campaignId": 2,
+      "userId": 1,
+      "amount": 100
+    },
+    {
+      "id": "2",
+      "campaignId": 2,
+      "userId": 2,
+      "amount": 200
+    },
+    {
+      "id": "3",
+      "campaignId": 4,
+      "userId": 1,
+      "amount": 300
+    },
+    {
+      "id": "4",
+      "campaignId": 4,
+      "userId": 2,
+      "amount": 400
+    }
+  ]
+}

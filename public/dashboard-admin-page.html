@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link href="style.css" rel="stylesheet">
+    <link href="dashborad-admin-page-style.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <div class="sidebar p-3 d-flex flex-column">
+        <img src="assets/icon/logo.svg" class="container p-4" alt="Logo" />
+        <ul class="nav nav-pills text-center flex-column">
+          <li class="nav-item">
+            <input id="button-dashbord" type="button"
+              class="container nav-link  font-black-500-16" value="Dashboard">
+          </li>
+
+          <li class="nav-item">
+            <input id="button-comapains" type="button"
+              class="container nav-link font-black-500-16"
+              value="Comapains">
+          </li>
+          <li class="nav-item">
+            <input id="button-campaign-requests" type="button"
+              class="container nav-link font-black-500-16"
+              value="Campaign requests">
+          </li>
+          <li class="nav-item">
+            <input id="button-campaigner-role-requests" type="button"
+              class="container nav-link font-black-500-16"
+              value="Campaigner requests">
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- pop Up -->
+      <div class="card p-3 popUp" id="divPopup">
+
+        <div class="modal-header p-2">
+          <h5 class="modal-title" id="popupName">Name</h5>
+          <button id="popupClose" type="button" class="btn-close"></button>
+        </div>
+
+        <div>
+          <p id="popupEmail">email</p>
+          <button id="popupBan" class="btn btn-warning">Ban</button>
+          <button id="popupDelete" class="btn btn-danger">Delete</button>
+        </div>
+
+      </div>
+      <!-- Main Content -->
+      <div id="main-content" class="flex-grow-1 p-4 content w-75 ">
+        <div class="container my-4">
+          <div class="row g-3">
+
+            <div class="col-md-4">
+              <div class="card shadow-sm p-3">
+                <p class="font-gray-400-16 ">Donations</p>
+                <p id="valueDonations" class="font-black-600-24">
+                  $249.95
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card shadow-sm p-3">
+                <p class="font-gray-400-16 ">Users</p>
+                <p id="valueUsers" class="font-black-600-24">
+                  25
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card shadow-sm p-3">
+                <p class="font-gray-400-16 ">Campigns</p>
+                <p id="valueCampigns" class="font-black-600-24">
+                  10
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Filter + Search -->
+        <div class="d-flex align-items-center my-3">
+          <div class="m-3">
+            <select class="form-select" id="roleSelect">
+              <option selected disabled>Role</option>
+              <option value="admin">Admin</option>
+              <option value="backer">Backer</option>
+              <option value="campaigner">Campaigner</option>
+              <option value="ban">Banned</option>
+            </select>
+          </div>
+
+          <input id="inputSearch" type="text" class="form-control w-50"
+            placeholder="Search for users by email" />
+
+          <button id="buttonSearch"
+            class="btn btn-outline-secondary m-3">Search</button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="table align-middle table-hover">
+            <thead class="table">
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-main-content">
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+      <!-- comapaigns content -->
+      <div id="comapaigns-content" class="flex-grow-1 p-4 content w-75 ">
+        <div class="d-flex align-items-center my-3">
+          <input id="inputSearchComapains" type="text" class="form-control w-50"
+            placeholder="Search for Comapains" />
+          <button id="buttonSearchComapains"
+            class="btn btn-outline-secondary m-3">Search</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-middle table-hover">
+            <thead class="table">
+              <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Goal</th>
+                <th>Deadline</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-comapaigns-content">
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+      <!-- compaigners content -->
+      <div id="comapaigners-content" class="flex-grow-1 p-4 content w-75">
+
+        <div class="d-flex align-items-center my-3">
+         
+          <input id="inputSearchComapainers" type="text" class="form-control w-50"
+            placeholder="Search for users by email" />
+
+          <button id="buttonSearchComapainers"
+            class="btn btn-outline-secondary m-3">Search</button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="table align-middle table-hover">
+            <thead class="table">
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-comapainers-content">
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <script type="module" src="dashbord-admin-main.js"></script>
+    </body>
+  </html>

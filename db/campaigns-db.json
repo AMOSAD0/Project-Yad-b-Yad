@@ -1,0 +1,49 @@
+{
+    "campaigns": [
+        {
+            "id": 1,
+            "img": "/imgs/imgCard.svg",
+            "title": "Smart Watch",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, labore. Fugiat dolorum doloremque quibusdam neque eos consequuntur. Dignissimos quis numquam culpa odio sit qui maiores, deleniti nostrum alias voluptate mollitia.",
+            "creatorId": 1,
+            "goal": 5000,
+            "donate": 0,
+            "countDonations": 0,
+            "deadline": "2025-5-30",
+            "isApproved": false
+        },
+        {
+            "id": 2,
+            "title": "helpppp",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, labore. Fugiat dolorum doloremque quibusdam neque eos consequuntur. Dignissimos quis numquam culpa odio sit qui maiores, deleniti nostrum alias voluptate mollitia.",
+            "creatorId": 1,
+            "goal": 1000,
+            "donate": 2,
+            "countDonations": 300,
+            "deadline": "2025-5-30",
+            "isApproved": true
+        },
+        {
+            "id": 3,
+            "title": "ai",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, labore. Fugiat dolorum doloremque quibusdam neque eos consequuntur. Dignissimos quis numquam culpa odio sit qui maiores, deleniti nostrum alias voluptate mollitia.",
+            "creatorId": 2,
+            "goal": 2000,
+            "donate": 0,
+            "countDonations": 0,
+            "deadline": "2025-5-30",
+            "isApproved": false
+        },
+        {
+            "id": 4,
+            "title": "helpppp ashrsf",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, labore. Fugiat dolorum doloremque quibusdam neque eos consequuntur. Dignissimos quis numquam culpa odio sit qui maiores, deleniti nostrum alias voluptate mollitia.",
+            "creatorId": 2,
+            "goal": 3000,
+            "donate": 2,
+            "countDonations": 700,
+            "deadline": "2025-5-30",
+            "isApproved": true
+        }
+    ]
+}
