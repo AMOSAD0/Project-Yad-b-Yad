@@ -1,13 +1,15 @@
+// Remove a specific class from a list of elements
 export function removeClass(elements, className) {
-    elements.forEach(el => {
-        el.classList.remove(className);
-    });
+  elements.forEach((el) => {
+    el.classList.remove(className);
+  });
 }
 
-export function none(elements,) {
-    elements.forEach(el => {
-        el.style.display = 'none';
-    });
+// Hide a list of elements by setting display to none
+export function none(elements) {
+  elements.forEach((el) => {
+    el.style.display = "none";
+  });
 }
 
 // export async function fetchJSONData(url) {
@@ -25,203 +27,274 @@ export function none(elements,) {
 //     }
 // }
 
-export async function fetchJSONData(url, method = 'GET', body = null) {
-    try {
-        const options = {
-            method,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
+// Generic function to fetch JSON data with optional method and body
+export async function fetchJSONData(url, method = "GET", body = null) {
+  try {
+    const options = {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-        if (body) {
-            options.body = JSON.stringify(body);
-        }
-
-        const response = await fetch(url, options);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        if (response.status !== 204) {
-            return await response.json();
-        } else {
-            return null;
-        }
-
-    } catch (error) {
-        console.error('Failed to fetch data:', error);
-        throw error;
+    if (body) {
+      options.body = JSON.stringify(body);
     }
+
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    if (response.status !== 204) {
+      return await response.json();
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    throw error;
+  }
 }
 
-
+// Delete a user by ID (if not null)
 export async function deleteUser(id) {
-    if (id !== null) {
-        await fetchJSONData(`http://localhost:3000/users/${id}`, 'DELETE').then(data => {
-            console.log(data);
+  if (id !== null) {
+    await fetchJSONData(`http://localhost:3000/users/${id}`, "DELETE").then(
+      (data) => {
+        console.log(data);
+      }
+    );
+  }
+}
+
+// Create and return a table row <tr> representing a user
+export function createTableUser(obj) {
+  let createTr = document.createElement("tr");
+
+  // Create and append each <td> cell for user data
+  let createTdid = document.createElement("td");
+  createTdid.innerText = obj.id;
+  createTr.appendChild(createTdid);
+
+  let createTdname = document.createElement("td");
+  createTdname.innerText = obj.name;
+  createTr.appendChild(createTdname);
+
+  let createTdemail = document.createElement("td");
+  createTdemail.innerText = obj.email;
+  createTr.appendChild(createTdemail);
+
+  let createTdrole = document.createElement("td");
+  createTdrole.innerText = obj.role;
+  createTr.appendChild(createTdrole);
+
+  // On clicking the row, show popup with user actions
+  createTr.addEventListener("click", function () {
+    divPopup.style.display = "block";
+    popupName.innerText = obj.name;
+    popupEmail.innerText = obj.email;
+    popupEmail.style.display = "block";
+    popupBan.style.display = "inline";
+
+    // Handle ban/unban toggle
+    popupBan.className = "btn btn-warning";
+    if (!obj.isActive) {
+      popupBan.innerText = "unban";
+    } else {
+      popupBan.innerText = "ban";
+    }
+    popupBan.addEventListener("click", function () {
+      if (confirm("Are you sure you want to ban this user?")) {
+        fetchJSONData(`http://localhost:3000/users/${obj.id}`, "PATCH", {
+          isActive: !obj.isActive,
+        }).then(() => {
+          location.reload();
         });
+      }
+    });
+
+
+    // If user is campaigner and not approved, show accept button
+    if (obj.role == "campaigner" && obj.isApproved == false) {
+      popupBan.style.display = "inline";
+      popupBan.className = "btn btn-success";
+      popupBan.innerText = "accept";
+      popupBan.addEventListener("click", function () {
+        fetchJSONData(`http://localhost:3000/users/${obj.id}`, "PATCH", {
+          isApproved: true,
+        }).then(() => {
+          location.reload();
+
+        });
+      }); // pop accept
     }
 
-
-}
-
-
-export function createTableUser(obj) {
-    let createTr = document.createElement('tr');
-
-    let createTdid = document.createElement('td');
-    createTdid.innerText = obj.id;
-    createTr.appendChild(createTdid);
-
-    let createTdname = document.createElement('td');
-    createTdname.innerText = obj.name;
-    createTr.appendChild(createTdname);
-
-    let createTdemail = document.createElement('td');
-    createTdemail.innerText = obj.email;
-    createTr.appendChild(createTdemail);
-
-    let createTdrole = document.createElement('td');
-    createTdrole.innerText = obj.role;
-    createTr.appendChild(createTdrole);
-
-    createTr.addEventListener('click', function () {
-        divPopup.style.display = 'block';
-        popupName.innerText = obj.name;
-        popupEmail.innerText = obj.email;
-        popupEmail.style.display = 'block';
-        popupBan.style.display = 'inline';
-
-        popupBan.className = "btn btn-warning";
-        if (!obj.isActive) {
-            popupBan.innerText = 'unban';
-        } else {
-            popupBan.innerText = 'ban';
-        }
-        popupBan.addEventListener('click', function () {
-            if (confirm("Are you sure you want to ban this user?")) {
-                fetchJSONData(`http://localhost:3000/users/${obj.id}`, 'PATCH', { "isActive": !obj.isActive, }).then(() => {
-                    location.reload();
-                });
-            }
-
-        });
-
-        if (obj.role == "campaigner" && obj.isApproved == false) {
-            popupBan.style.display = 'inline';
-            popupBan.className = "btn btn-success";
-            popupBan.innerText = "accept";
-            popupBan.addEventListener('click', function () {
-                fetchJSONData(`http://localhost:3000/users/${obj.id}`, 'PATCH', { "isApproved": true }).then(() => {
-                    location.reload();
-                });
-            })// pop accept
-        }
-
-        popupClose.addEventListener('click', function () {
-            divPopup.style.display = 'none';
-        });
-
-        popupDelete.addEventListener('click', function () {
-            if (confirm("Are you sure you want to delete this user?")) {
-                fetchJSONData(`http://localhost:3000/users/${obj.id}`, 'DELETE').then(() => {
-                    location.reload();
-                });
-            }
-
-        });
+    // Close popup
+    popupClose.addEventListener("click", function () {
+      divPopup.style.display = "none";
     });
 
-    return createTr;
+    // Delete user
+    popupDelete.addEventListener("click", function () {
+      if (confirm("Are you sure you want to delete this user?")) {
+        fetchJSONData(`http://localhost:3000/users/${obj.id}`, "DELETE").then(
+          () => {
+            location.reload();
+          }
+        );
+      }
+    });
+  });
+
+  return createTr;
 }
 
+// Create and return a table row <tr> representing a campaign
 export function createTableCompains(obj) {
-    let createTr = document.createElement('tr');
+  let createTr = document.createElement("tr");
 
-    let createTdid = document.createElement('td');
-    createTdid.innerText = obj.id;
-    createTr.appendChild(createTdid);
+  let createTdid = document.createElement("td");
+  createTdid.innerText = obj.id;
+  createTr.appendChild(createTdid);
 
-    let createTdtitle = document.createElement('td');
-    createTdtitle.innerText = obj.title;
-    createTr.appendChild(createTdtitle);
+  let createTdtitle = document.createElement("td");
+  createTdtitle.innerText = obj.title;
+  createTr.appendChild(createTdtitle);
 
-    let createTdgoal = document.createElement('td');
-    createTdgoal.innerText = obj.goal;
-    createTr.appendChild(createTdgoal);
+  let createTdgoal = document.createElement("td");
+  createTdgoal.innerText = obj.goal;
+  createTr.appendChild(createTdgoal);
 
-    let createTddeadline = document.createElement('td');
-    createTddeadline.innerText = obj.deadline;
-    createTr.appendChild(createTddeadline);
+  let createTddeadline = document.createElement("td");
+  createTddeadline.innerText = obj.deadline;
+  createTr.appendChild(createTddeadline);
 
-    createTr.addEventListener('click', function () {
-        divPopup.style.display = 'block';
-        popupName.innerText = obj.title;
-        popupEmail.style.display = 'none';
-        if (obj.isApproved) {
-            popupBan.style.display = 'none';
-        }
-        else {
-            popupBan.style.display = 'inline';
-            popupBan.className = "btn btn-success";
-            popupBan.innerText = "accept";
-            popupBan.addEventListener('click', function () {
-                fetchJSONData(`http://localhost:3000/campaigns/${obj.id}`, 'PATCH', { "isApproved": true }).then(() => {
-                    location.reload();
-                });
-            })// pop accept
-        }
+  // On clicking row, show campaign popup
+  createTr.addEventListener("click", function () {
+    divPopup.style.display = "block";
+    popupName.innerText = obj.title;
+    popupEmail.style.display = "none";
+    if (obj.isApproved) {
+      popupBan.style.display = "none";
+    } else {
+      popupBan.style.display = "inline";
+      popupBan.className = "btn btn-success";
+      popupBan.innerText = "accept";
 
-
-        popupClose.addEventListener('click', function () {
-            divPopup.style.display = 'none';
+      // Accept campaign
+      popupBan.addEventListener("click", function () {
+        fetchJSONData(`http://localhost:3000/campaigns/${obj.id}`, "PATCH", {
+          isApproved: true,
+        }).then(() => {
+          location.reload();
         });
+      }); // pop accept
+    }
 
-
-
-        popupDelete.addEventListener('click', function () {
-            if (confirm("Are you sure you want to delete this campaigns ?")) {
-                fetchJSONData(`http://localhost:3000/campaigns/${obj.id}`, 'DELETE').then(() => {
-                    location.reload();
-                });
-            }
-
-        });
+    // Close popup
+    popupClose.addEventListener("click", function () {
+      divPopup.style.display = "none";
     });
 
-    return createTr;
+    // Delete campaign
+    popupDelete.addEventListener("click", function () {
+      if (confirm("Are you sure you want to delete this campaigns ?")) {
+        fetchJSONData(
+          `http://localhost:3000/campaigns/${obj.id}`,
+          "DELETE"
+        ).then(() => {
+          location.reload();
+        });
+      }
+    });
+  });
+  return createTr;
 }
 
-export function getDataDisplayDashBord(tbodyMainContent, valueUsers, valueCampigns, valueDonations) {
-    let usersData = [];
+// Fetch and display dashboard data: users, campaigns, donation
+export function getDataDisplayDashBord(
+  tbodyMainContent,
+  valueUsers,
+  valueCampigns,
+  valueDonations
+) {
+  let usersData = [];
 
-    fetchJSONData('http://localhost:3000/users').then(data => {
-        tbodyMainContent.innerHTML = '';
+  // Load and render users
+  fetchJSONData("http://localhost:3000/users").then((data) => {
+    tbodyMainContent.innerHTML = "";
 
-        console.log(data);
-        for (let i = 0; i < data.length; ++i) {
-            usersData.push(data[i]);
-            tbodyMainContent.appendChild(createTableUser(data[i]));
+    console.log(data);
+    for (let i = 0; i < data.length; ++i) {
+      usersData.push(data[i]);
+      tbodyMainContent.appendChild(createTableUser(data[i]));
+    }
 
-        }
+    // Display user count
+    valueUsers.innerText = usersData.length;
+  });
 
-        valueUsers.innerText = usersData.length;
-    });
-    fetchJSONData("http://localhost:3000/campaigns").then(data => {
-        valueCampigns.innerText = data.length;
-    });
-    fetchJSONData("http://localhost:3000/pledges").then(data => {
-        let money = 0;
-        for (let i = 0; i < data.length; ++i) {
-            money = money + data[i].amount;
-        }
-        valueDonations.innerText = `$${money}`;
-    });
-    console.log(usersData);
-    return usersData;
+  // Load campaigns count
+  fetchJSONData("http://localhost:3000/campaigns").then((data) => {
+    valueCampigns.innerText = data.length;
+  });
+
+  // Load and sum donations
+  fetchJSONData("http://localhost:3000/pledges").then((data) => {
+    let money = 0;
+    for (let i = 0; i < data.length; ++i) {
+      money = money + data[i].amount;
+    }
+    valueDonations.innerText = `$${money}`;
+  });
+  console.log(usersData);
+  return usersData;
 }
+
+// ******* Validation Functions *******
+// Check if email is valid using regex pattern
+export function isEmailValid(email) {
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return pattern.test(email);
+}
+
+// Check if password is at least 6 characters long
+export function isPasswordStrong(password) {
+  return password.length >= 6;
+}
+
+// Check if string is not empty (ignoring whitespace)
+export function isNotEmpty(value) {
+  return value.trim() !== "";
+}
+// ****** Validation Message *********
+// Create a styled error message element
+export function createErrMsg(msg) {
+  let divErr = document.createElement("div");
+  divErr.className = "invalid";
+
+  divErr.innerText = msg;
+   return divErr;
+}
+
+
+//         valueUsers.innerText = usersData.length;
+//     });
+//     fetchJSONData("http://localhost:3000/campaigns").then(data => {
+//         valueCampigns.innerText = data.length;
+//     });
+//     fetchJSONData("http://localhost:3000/pledges").then(data => {
+//         let money = 0;
+//         for (let i = 0; i < data.length; ++i) {
+//             money = money + data[i].amount;
+//         }
+//         valueDonations.innerText = `$${money}`;
+//     });
+//     console.log(usersData);
+//     return usersData;
+// }
 
 export function createCardCampaign(obj) {
     // let createDiv = document.createElement('div');
@@ -289,3 +362,4 @@ export function createCardPledge(obj) {
 
     return createDiv;
 }
+

@@ -60,34 +60,12 @@
             <div class="col-lg-6 mb-5 mb-lg-0">
               <div class="card signUp__box">
                 <div class="card-body py-5 px-md-5">
-                  <form>
-                    <!-- first name last name  -->
-                    <div class="row">
-                      <div class="col-md-6 mb-4">
-                        <div data-mdb-input-init class="form-outline">
-                          <label class="form-label" for="firstname"
-                            >First name</label
-                          >
-                          <input
-                            type="text"
-                            id="firstname"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-md-6 mb-4">
-                        <div data-mdb-input-init class="form-outline">
-                          <label class="form-label" for="lastname"
-                            >Last name</label
-                          >
-                          <input
-                            type="text"
-                            id="lastname"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
+                  <form id="signupForm">
+                    <div class="alert alert-warning" role="alert"></div>
+                    <!-- name -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <label class="form-label" for="name">Name</label>
+                      <input type="text" id="name" class="form-control" />
                     </div>
 
                     <!-- Email input -->
@@ -100,6 +78,15 @@
                     <div data-mdb-input-init class="form-outline mb-4">
                       <label class="form-label" for="pass">Password</label>
                       <input type="password" id="pass" class="form-control" />
+                    </div>
+
+                    <!-- Role input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <label class="form-label" for="role">Role</label>
+                      <select name="role" id="role" class="form-select">
+                        <option value="campaigner">campaigner</option>
+                        <option value="backer">backer</option>
+                      </select>
                     </div>
 
                     <!-- Submit button -->
@@ -160,5 +147,6 @@
       </div>
     </section>
     <!-- end signUp  -->
+    <script type="module" src="signUp.js"></script>
   </body>
 </html>
