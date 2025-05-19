@@ -33,6 +33,13 @@
 .logIn__register a:hover {
   color: var(--secondary-color) !important;
 }
+.alert {
+  display: none;
+}
+.invalid {
+  display: none;
+  color: red;
+}
 /* end logIn */
 
 /* start signUp */
@@ -45,7 +52,8 @@
   background-color: transparent;
   border: none;
 }
-.signUp__box input {
+.signUp__box input,
+.signUp__box select {
   background-color: var(--bg-color);
 }
 
@@ -68,5 +76,6 @@
 
 .signUp__regiseter__icon i {
   color: var(--primary-color);
+  font-size: 2rem;
 }
 /* end signUp */
