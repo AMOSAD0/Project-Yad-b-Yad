@@ -115,6 +115,7 @@ export function createTableUser(obj) {
       }
     });
 
+
     // If user is campaigner and not approved, show accept button
     if (obj.role == "campaigner" && obj.isApproved == false) {
       popupBan.style.display = "inline";
@@ -125,6 +126,7 @@ export function createTableUser(obj) {
           isApproved: true,
         }).then(() => {
           location.reload();
+
         });
       }); // pop accept
     }
@@ -274,6 +276,90 @@ export function createErrMsg(msg) {
   divErr.className = "invalid";
 
   divErr.innerText = msg;
-
-  return divErr;
+   return divErr;
 }
+
+
+//         valueUsers.innerText = usersData.length;
+//     });
+//     fetchJSONData("http://localhost:3000/campaigns").then(data => {
+//         valueCampigns.innerText = data.length;
+//     });
+//     fetchJSONData("http://localhost:3000/pledges").then(data => {
+//         let money = 0;
+//         for (let i = 0; i < data.length; ++i) {
+//             money = money + data[i].amount;
+//         }
+//         valueDonations.innerText = `$${money}`;
+//     });
+//     console.log(usersData);
+//     return usersData;
+// }
+
+export function createCardCampaign(obj) {
+    // let createDiv = document.createElement('div');
+    // createDiv.className= "card size-card";
+
+    // let createImg = document.createElement('img');
+    // createImg.src="./assets/image/imgCard.svg";
+    // createImg.className =""
+
+    let createDiv = document.createElement('div');
+    createDiv.className = "col-12 col-md-6 col-lg-4";
+    createDiv.innerHTML =
+        `
+    <div class="card size-card">
+                            <img src="./assets/image/imgCard.svg"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <p class="card-title font-black-600-24">
+                                    ${obj.title}
+                                </p>
+                                <p
+                                    class="card-text text-truncate font-gray-400-16">
+                                    ${obj.description}
+                                </p>
+                                <progress class="progress" max="100"
+                                    value="${obj.valueProgress()}"></progress>
+                                <div
+                                    class="d-flex justify-content-between mt-2">
+                                    <div class="d-flex align-items-center">
+                                        <img class="w-25 icon-card"
+                                            src="./assets/icon/gift.svg">
+                                        <p
+                                            class="font-black-500-16 m-1">$${obj.goal}</p>
+                                    </div>
+                                    <p class="font-black-500-16 m-1">%${obj.valueProgress()}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+    createDiv.addEventListener('click', function () {
+        localStorage.setItem('selectedCampaign', JSON.stringify(obj));
+        window.location.href = "campaign-details-page.html";
+    });// createDiv.addEventListener
+
+    return createDiv;
+
+
+}
+
+export function createCardPledge(obj) {
+    let createDiv = document.createElement('div');
+    createDiv.className = "row align-items-center";
+    createDiv.innerHTML = `<div
+                                            class="col-6 rounded-5 div--icon-person ">
+                                            <img src="assets/icon/person.svg">
+                                        </div>
+                                        <div class="col mt-3">
+                                            <p class="font-black-600-18  mb-0">
+                                                ${obj.userName} </p>
+                                            <p class="font-black-600-14">
+                                                $${obj.amount}
+                                            </p>
+                                        </div>`;
+
+    return createDiv;
+}
+

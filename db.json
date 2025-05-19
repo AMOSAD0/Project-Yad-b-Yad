@@ -90,25 +90,25 @@
     {
       "id": "1",
       "campaignId": 2,
-      "userId": 1,
+      "userId": 5,
       "amount": 100
     },
     {
       "id": "2",
       "campaignId": 2,
-      "userId": 2,
+      "userId": 6,
       "amount": 200
     },
     {
       "id": "3",
       "campaignId": 4,
-      "userId": 1,
+      "userId": 6,
       "amount": 300
     },
     {
       "id": "4",
       "campaignId": 4,
-      "userId": 2,
+      "userId": 5,
       "amount": 400
     }
   ]
