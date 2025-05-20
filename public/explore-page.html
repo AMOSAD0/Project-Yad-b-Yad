@@ -1,111 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Explore</title>
-        <!--  font  -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-            rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore</title>
+    <!--  font  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
 
-        <!--  Bootstrab  -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-            crossorigin="anonymous">
-        <!-- style sheet -->
-        <link href="style.css" rel="stylesheet">
-        <link href="footer-explore-style.css" rel="stylesheet">
-    </head>
-    <body>
+    <!--  Bootstrab  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <!-- style sheet -->
+    <link href="style.css" rel="stylesheet" />
+    <link href="footer-explore-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="home__header">
+      <div class="home__header__logo">
+        <a href="http://localhost:3000/">
+          <img src="./assets/icon/logo.svg" alt="logo image" />
+        </a>
+      </div>
 
-        <main class="container" id="explore">
+      <nav class="home__header__nav" id="navbarNav">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/explore-page.html"
+              >Explore</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="http://localhost:3000/compaignDashBoard.html"
+              >Campaigns</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-disabled="true"
+              href="http://localhost:3000/profile.html"
+              >Profile</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
+    <main class="container" id="explore">
+      <header class="container row">
+        <div class="col-lg-10 col-md-7 col-6">
+          <p class="font-black-600-30">Explore</p>
+          <p class="font-gray-400-16">Where do you want to help</p>
+        </div>
+        <div class="col-lg-2 col-md-5 col-6">
+          <div class="btn border font-black-600-14">Price</div>
+          <div class="btn border font-black-600-14">Date</div>
+        </div>
+      </header>
 
-            <header class="container row">
-                <div class="col-lg-10 col-md-7 col-6 ">
-                    <p class="font-black-600-30">Explore</p>
-                    <p class="font-gray-400-16">Where do you want to help</p>
+      <main class="container">
+        <div id="divCards" class="row justify-content-start">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card size-card">
+              <img src="./assets/image/imgCard.svg" class="card-img-top" />
+              <div class="card-body">
+                <p class="card-title font-black-600-24">
+                  Ms. Saint-Martin Doranyia Pascal lkdmzklfk lznslfnzs
+                  nfdnfjlznsdjnkzjl
+                </p>
+                <p class="card-text text-truncate font-gray-400-16">
+                  Hi This is your Miss Teen Carnival 2022 Doranyia Pascal I will
+                  be representing Saint Martin...
+                </p>
+                <progress class="progress" max="100" value="50"></progress>
+                <div class="d-flex justify-content-between mt-2">
+                  <div class="d-flex align-items-center">
+                    <img class="w-25 icon-card" src="./assets/icon/gift.svg" />
+                    <p class="font-black-500-16 m-1">$8000</p>
+                  </div>
+                  <p class="font-black-500-16 m-1">%50</p>
                 </div>
-                <div class="col-lg-2 col-md-5 col-6">
-                    <div class="btn border font-black-600-14">
-                        Price
-                    </div>
-                    <div class="btn border font-black-600-14">
-                        Date
-                    </div>
+              </div>
+            </div>
+            <div class="card size-card">
+              <img src="./assets/image/imgCard.svg" class="card-img-top" />
+              <div class="card-body">
+                <p class="card-title font-black-600-24">
+                  Ms. Saint-Martin Doranyia Pascal lkdmzklfk lznslfnzs
+                  nfdnfjlznsdjnkzjl
+                </p>
+                <p class="card-text text-truncate font-gray-400-16">
+                  Hi This is your Miss Teen Carnival 2022 Doranyia Pascal I will
+                  be representing Saint Martin...
+                </p>
+                <progress class="progress" max="100" value="50"></progress>
+                <div class="d-flex justify-content-between mt-2">
+                  <div class="d-flex align-items-center">
+                    <img class="w-25 icon-card" src="./assets/icon/gift.svg" />
+                    <p class="font-black-500-16 m-1">$8000</p>
+                  </div>
+                  <p class="font-black-500-16 m-1">%50</p>
                 </div>
-            </header>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
 
-            <main class="container ">
-                <div id="divCards" class="row justify-content-start">
-
-                    <div  class="col-12 col-md-6 col-lg-4">
-                        <div class="card size-card">
-                            <img src="./assets/image/imgCard.svg"
-                                class="card-img-top">
-                            <div class="card-body">
-                                <p class="card-title font-black-600-24">
-                                    Ms. Saint-Martin Doranyia Pascal lkdmzklfk
-                                    lznslfnzs nfdnfjlznsdjnkzjl
-                                </p>
-                                <p
-                                    class="card-text text-truncate font-gray-400-16">
-                                    Hi This is your Miss Teen Carnival 2022
-                                    Doranyia
-                                    Pascal I will be representing Saint
-                                    Martin...
-                                </p>
-                                <progress class="progress" max="100"
-                                    value="50"></progress>
-                                <div
-                                    class="d-flex justify-content-between mt-2">
-                                    <div class="d-flex align-items-center">
-                                        <img class="w-25 icon-card"
-                                            src="./assets/icon/gift.svg">
-                                        <p
-                                            class="font-black-500-16 m-1">$8000</p>
-                                    </div>
-                                    <p class="font-black-500-16 m-1">%50</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card size-card">
-                            <img src="./assets/image/imgCard.svg"
-                                class="card-img-top">
-                            <div class="card-body">
-                                <p class="card-title font-black-600-24">
-                                    Ms. Saint-Martin Doranyia Pascal lkdmzklfk
-                                    lznslfnzs nfdnfjlznsdjnkzjl
-                                </p>
-                                <p
-                                    class="card-text text-truncate font-gray-400-16">
-                                    Hi This is your Miss Teen Carnival 2022
-                                    Doranyia
-                                    Pascal I will be representing Saint
-                                    Martin...
-                                </p>
-                                <progress class="progress" max="100"
-                                    value="50"></progress>
-                                <div
-                                    class="d-flex justify-content-between mt-2">
-                                    <div class="d-flex align-items-center">
-                                        <img class="w-25 icon-card"
-                                            src="./assets/icon/gift.svg">
-                                        <p
-                                            class="font-black-500-16 m-1">$8000</p>
-                                    </div>
-                                    <p class="font-black-500-16 m-1">%50</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </main>
-
-            <!-- <footer class="d-flex justify-content-center ">
+      <!-- <footer class="d-flex justify-content-center ">
                 <nav class="pagination-container">
                     <div class="pagination">
                         <a class="pagination-newer" href="#">PREV</a>
@@ -121,8 +132,7 @@
                     </div>
                 </nav>
             </footer> -->
-
-        </main>
-        <script type="module" src="explore-page-main.js"></script>
-    </body>
+    </main>
+    <script type="module" src="explore-page-main.js"></script>
+  </body>
 </html>

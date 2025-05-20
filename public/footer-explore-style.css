@@ -1,3 +1,16 @@
+#explore {
+  margin-top: 11rem;
+}
+@media (max-width: 650px) {
+  .home__header__logo img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .home__header__nav a {
+    font-size: 0.9rem;
+  }
+}
 .pagination-container {
   margin: 100px auto;
   text-align: center;
@@ -33,27 +46,20 @@
 .pagination a:hover,
 .pagination a.pagination-active {
   color: var(--white-color);
-  
 }
 
-.pagination a:hover::before
- {
+.pagination a:hover::before {
   transform: scale(1);
   background-color: var(--secondary-color);
-  
 }
 
 .pagination a.pagination-active {
   color: var(--white-color);
-  
 }
 
 .pagination a.pagination-active::before {
   transform: scale(1);
-  
 }
-
-
 
 .pagination-newer {
   margin-right: 50px;

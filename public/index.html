@@ -46,18 +46,13 @@
   </head>
   <body>
     <!-- start home section  -->
-
-
     <section class="home" id="home">
-
       <div class="container home__container">
         <!-- start header  -->
         <header class="home__header">
           <div class="home__header__logo">
-
-            <a href="#home">
-
-              <img src=".//assets/icon/logo.svg" alt="logo image" />
+            <a href="http://localhost:3000/">
+              <img src="./assets/icon/logo.svg" alt="logo image" />
             </a>
           </div>
 
@@ -65,24 +60,34 @@
             <div class="menu-wrapper">
               <ul class="nav">
                 <li class="nav-item">
-
-
-                  <a class="nav-link active" aria-current="page" href="#home"
-
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="http://localhost:3000/"
                     >Home</a
                   >
                 </li>
                 <li class="nav-item">
-
-
-                  <a class="nav-link" href="#explore">Explore</a>
+                  <a
+                    class="nav-link"
+                    href="http://localhost:3000/explore-page.html"
+                    >Explore</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#campaign">Campaigns</a>
+                  <a
+                    class="nav-link"
+                    href="http://localhost:3000/compaignDashBoard.html"
+                    >Campaigns</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" aria-disabled="true" href="#">Profile</a>
-
+                  <a
+                    class="nav-link"
+                    aria-disabled="true"
+                    href="http://localhost:3000/profile.html"
+                    >Profile</a
+                  >
                 </li>
               </ul>
             </div>
@@ -114,9 +119,7 @@
           </div>
         </div>
 
-
         <a href="#home" class="home__go-down">
-
           <i class="fa-solid fa-angles-down fa-2x"></i>
         </a>
       </div>
@@ -126,7 +129,6 @@
     <!-- start login section  -->
 
     <section class="login" id="login">
-
       <div class="container">
         <div class="row">
           <div class="col-md-6 p-0">
@@ -140,7 +142,11 @@
                 signatures. You can manage your campaign updates and your
                 supporters on dashboard.
               </p>
-              <button class="login__leftBtn">Start a Campaign</button>
+              <a
+                href="http://localhost:3000/createCampaign.html"
+                class="login__leftBtn"
+                >Start a Campaign</a
+              >
             </div>
           </div>
 
@@ -155,7 +161,11 @@
                 signing, sharing and donating to spread good values to the
                 community.
               </p>
-              <button class="login__rightBtn">Sign the petition</button>
+              <a
+                href="http://localhost:3000/signup.html"
+                class="login__rightBtn"
+                >Sign the petition</a
+              >
             </div>
           </div>
         </div>
@@ -166,7 +176,6 @@
     <!-- Start campaign -->
 
     <section class="campaign" id="campaign">
-
       <div class="container">
         <div class="campaign__head">
           <h1>Start your campaign today</h1>
@@ -298,6 +307,25 @@
           menuWrapper.classList.toggle("active");
 
           listBtn.classList.toggle("active");
+        });
+      });
+
+      const scrollToTopBtn = document.querySelector(".home__go-down");
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 300 ||
+          document.documentElement.scrollTop > 300
+        ) {
+          scrollToTopBtn.style.display = "block";
+        } else {
+          scrollToTopBtn.style.display = "none";
+        }
+      };
+
+      scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         });
       });
     </script>

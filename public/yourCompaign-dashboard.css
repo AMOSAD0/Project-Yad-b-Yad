@@ -2,10 +2,20 @@
 .dashboard {
   margin-top: var(--margin-7);
 }
+@media (max-width: 790px) {
+  .home__header__logo img {
+    width: 5rem;
+    height: 5rem;
+  }
 
+  .home__header__nav a {
+    font-size: 0.9rem;
+  }
+}
 .dashboard__active__header h2 {
   color: var(--primary-color);
 }
+
 .dashboard__active__header button {
   background-color: var(--primary-color);
   color: var(--white-color);

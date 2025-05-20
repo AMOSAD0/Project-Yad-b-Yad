@@ -1,6 +1,6 @@
 /* start profile */
 .profile {
-  margin-top: var(--margin-7);
+  margin-top: 12rem;
   border-bottom: 1px solid var(--primary-color);
 }
 .profile__header {
