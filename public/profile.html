@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- box icon  -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- style sheet -->
+    <link href="style.css" rel="stylesheet" />
+
+    <!-- profile css  -->
+    <link rel="stylesheet" href="profile.css" />
+    <link href="footer-explore-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- start profile  -->
+    <section class="profile">
+      <div class="container">
+        <div class="profile__header">
+          <div class="profile__header__info">
+            <img src="assets/icon/person.svg" alt="Avatar" class="avatar" />
+            <div class="profile__header__info__text">
+              <h5 id="profileName" class="mb-0">Alexa Rawles</h5>
+              <small id="profileEmail" class="text-muted">alexarawles@gmail.com</small>
+            </div>
+          </div>
+          <button class="btn edit-btn">Edit</button>
+        </div>
+
+        <form>
+          <div>
+            <label for="name" class="form-label">Full Name</label>
+            <input
+              id="name"
+              type="text"
+              class="form-control inputEle"
+              placeholder="Your First Name"
+              disabled
+            />
+          </div>
+
+          <div>
+            <label for="mail" class="form-label">E-mail</label>
+            <input
+              id="mail"
+              type="email"
+              class="form-control"
+              placeholder="Your First Name"
+              disabled
+            />
+          </div>
+
+          <div>
+            <label for="pass" class="form-label">Password</label>
+            <input
+              id="pass"
+              type="password"
+              class="form-control inputEle"
+              placeholder="Your First Name"
+              disabled
+            />
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- end profile  -->
+
+    <!-- start history  -->
+    <section class="history">
+      <div class="container" id="explore">
+        <header class="container row">
+          <p class="font-black-600-30">Explore</p>
+        </header>
+
+        <main class="container">
+          <div id="divCards" class="row justify-content-start">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card size-card">
+                <img src="./assets/image/imgCard.svg" class="card-img-top" />
+                <div class="card-body">
+                  <p class="card-title font-black-600-24">
+                    Ms. Saint-Martin Doranyia Pascal lkdmzklfk lznslfnzs
+                    nfdnfjlznsdjnkzjl
+                  </p>
+                  <p class="card-text text-truncate font-gray-400-16">
+                    Hi This is your Miss Teen Carnival 2022 Doranyia Pascal I
+                    will be representing Saint Martin...
+                  </p>
+                  <progress class="progress" max="100" value="50"></progress>
+                  <div class="d-flex justify-content-between mt-2">
+                    <div class="d-flex align-items-center">
+                      <img
+                        class="w-25 icon-card"
+                        src="./assets/icon/gift.svg"
+                      />
+                      <p class="font-black-500-16 m-1">$8000</p>
+                    </div>
+                    <p class="font-black-500-16 m-1">%50</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+    <!-- end history  -->
+    <script type="module" src="profile.js"></script>
+  </body>
+</html>
