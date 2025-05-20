@@ -12,7 +12,6 @@ window.addEventListener('load', () => {
         countCampaigns.innerText=dataCampaigns.length;
         for (let i = 0; i < dataCampaigns.length; i++) {
             let obj = new campaign(
-                dataCampaigns[i].id,
                 dataCampaigns[i].title,
                 dataCampaigns[i].description,
                 dataCampaigns[i].creatorId,
@@ -20,8 +19,11 @@ window.addEventListener('load', () => {
                 dataCampaigns[i].donate,
                 dataCampaigns[i].countDonations,
                 dataCampaigns[i].deadline,
-                dataCampaigns[i].isApproved
+                dataCampaigns[i].isApproved,
+                dataCampaigns[i].image,
+                dataCampaigns[i].category
             );
+            obj.id = dataCampaigns[i].id;
             let cardCampaign = createCardCampaign(obj,"campaign-dashbord");
             divCampaigns.appendChild(cardCampaign);
         }

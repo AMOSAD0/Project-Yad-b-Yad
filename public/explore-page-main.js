@@ -19,6 +19,7 @@ window.addEventListener('load', function () {
                 data[i].isApproved,
                 data[i].image,
                 data[i].category);
+            obj.id = data[i].id;
 
             if (data[i].isApproved == true) {
                 campaignsData.push(obj);
