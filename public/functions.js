@@ -274,7 +274,6 @@ export function isNotEmpty(value) {
 export function createErrMsg(msg) {
   let divErr = document.createElement("div");
   divErr.className = "invalid";
-
   divErr.innerText = msg;
    return divErr;
 }
@@ -296,7 +295,7 @@ export function createErrMsg(msg) {
 //     return usersData;
 // }
 
-export function createCardCampaign(obj) {
+export function createCardCampaign(obj,page="") {
     // let createDiv = document.createElement('div');
     // createDiv.className= "card size-card";
 
@@ -337,7 +336,12 @@ export function createCardCampaign(obj) {
 
     createDiv.addEventListener('click', function () {
         localStorage.setItem('selectedCampaign', JSON.stringify(obj));
-        window.location.href = "campaign-details-page.html";
+        if (page == "campaign-dashbord") {
+          window.location.href = "yourCompaign.html";
+        }else{
+          window.location.href = "campaign-details-page.html";
+        }
+        
     });// createDiv.addEventListener
 
     return createDiv;
@@ -361,5 +365,14 @@ export function createCardPledge(obj) {
                                         </div>`;
 
     return createDiv;
+}
+
+export async function convertImageBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+    });
 }
 

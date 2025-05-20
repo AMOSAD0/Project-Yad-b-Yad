@@ -9,9 +9,10 @@ export class campaign {
     countDonations;
     deadline;
     isApproved;
+    img;
+    category;
 
-    constructor(id,title,description,creatorId,goal,donate,countDonations,deadline,isApproved){
-        this.id =id; 
+    constructor(title,description,creatorId,goal,donate,countDonations,deadline,isApproved,img,category){  
         this.title = title;
         this.description = description;
         this.creatorId = creatorId;
@@ -20,6 +21,8 @@ export class campaign {
         this.countDonations = countDonations;
         this.deadline = deadline;
         this.isApproved = isApproved;
+        this.img = img;
+        this.category = category;
     }
 
     valueProgress(){

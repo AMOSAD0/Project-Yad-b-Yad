@@ -454,6 +454,21 @@ body {
 .campaign__body__img img {
   max-width: 100%;
 }
+.div--icon-person{
+    height: 2.625rem;
+    width: 2.625rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+}
+
+.invalid {
+  display: none;
+  color: red;
+}
+.alert{
+  display: none;
+}
 /* end campaign  */
 
 /* start footer  */
