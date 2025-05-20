@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
         campaignsData = [];
         divCards.innerHTML = '';
         for (let i = 0; i < data.length; ++i) {
-            let obj = new campaign(data[i].id,
+            let obj = new campaign(
                 data[i].title,
                 data[i].description,
                 data[i].creatorId,
@@ -16,11 +16,18 @@ window.addEventListener('load', function () {
                 data[i].donate,
                 data[i].countDonations,
                 data[i].deadline,
-                data[i].isApproved);
-            campaignsData.push(obj);
-            let d = createCardCampaign(obj);
-            console.log(d);
-            divCards.appendChild(d);
+                data[i].isApproved,
+                data[i].image,
+                data[i].category);
+
+            if (data[i].isApproved == true) {
+                campaignsData.push(obj);
+                let d = createCardCampaign(obj);
+                console.log(d);
+                divCards.appendChild(d);
+            }
+
+
         }
         console.log(campaignsData);
     });//fetch
