@@ -29,6 +29,11 @@
               value="Comapains">
           </li>
           <li class="nav-item">
+            <input id="button-pledeges" type="button"
+              class="container nav-link font-black-500-16"
+              value="Pledges">
+          </li>
+          <li class="nav-item">
             <input id="button-campaign-requests" type="button"
               class="container nav-link font-black-500-16"
               value="Campaign requests">
@@ -37,6 +42,12 @@
             <input id="button-campaigner-role-requests" type="button"
               class="container nav-link font-black-500-16"
               value="Campaigner requests">
+          </li>
+
+          <li class="nav-item">
+            <input id="buttonLogout" type="button"
+              class="container nav-link font-black-500-16"
+              value="Logout">
           </li>
 
         </ul>
@@ -153,12 +164,32 @@
           </table>
         </div>
       </div>
+       <div id="PledgesContent" class="flex-grow-1 p-4 content w-75 ">
+          
+          <div class="table-responsive">
+            <table class="table align-middle table-hover">
+              <thead class="table">
+                <tr>
+                  <th>Id</th>
+                  <th>Campaign</th>
+                  <th>User</th>
+                  <th>amount</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-pledges-content">
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
       <!-- compaigners content -->
       <div id="comapaigners-content" class="flex-grow-1 p-4 content w-75">
 
         <div class="d-flex align-items-center my-3">
-         
-          <input id="inputSearchComapainers" type="text" class="form-control w-50"
+
+          <input id="inputSearchComapainers" type="text"
+            class="form-control w-50"
             placeholder="Search for users by email" />
 
           <button id="buttonSearchComapainers"
@@ -182,6 +213,8 @@
 
           </table>
         </div>
+       
+
       </div>
 
       <script

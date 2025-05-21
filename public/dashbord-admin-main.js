@@ -1,4 +1,4 @@
-import { removeClass, none, fetchJSONData, createTableUser, createTableCompains, getDataDisplayDashBord } from './functions.js';
+import { removeClass, none, fetchJSONData, createTableUser, createTableCompains, getDataDisplayDashBord, createTablePledegs } from './functions.js';
 
 
 window.addEventListener('load', () => {
@@ -32,7 +32,11 @@ window.addEventListener('load', () => {
     let popupBan = document.getElementById('popupBan');
     let popupDelete = document.getElementById('popupDelete');
     let popupName = document.getElementById('popupName');
-     let userObj = JSON.parse(localStorage.getItem('userLocal'));
+    let buttonPledeges = document.getElementById('button-pledeges');
+    let PledgesContent = document.getElementById('PledgesContent');
+    let tbodyPledgesContent = document.getElementById('tbody-pledges-content');
+    let buttonLogout = document.getElementById('buttonLogout');
+    let userObj = JSON.parse(localStorage.getItem('userLocal'));
     let usersData = [];
     let comapaignsData = [];
     let comapaignersData = [];
@@ -52,14 +56,14 @@ window.addEventListener('load', () => {
         }
     }
     else {
-       window.location.href = "http://localhost:3000/index.html";
+        window.location.href = "http://localhost:3000/index.html";
     }
 
     buttonDashbord.classList.add("active");
     mainContent.style.display = "block";
     usersData = getDataDisplayDashBord(tbodyMainContent, valueUsers, valueCampigns, valueDonations);
 
-   
+
     buttonSearch.addEventListener('click', function () {
         if (inputSearch.value == '') {
             console.log('nullll');
@@ -90,7 +94,7 @@ window.addEventListener('load', () => {
         }
     });// search compaigns
 
-    buttonSearchComapainers.addEventListener('click',function(){
+    buttonSearchComapainers.addEventListener('click', function () {
         if (inputSearchComapainers.value == '') {
             console.log('nullll');
         } else {
@@ -132,8 +136,50 @@ window.addEventListener('load', () => {
             }
         });
 
-
     })// btn campigner req
+
+    buttonPledeges.addEventListener('click', function () {
+        removeClass(btnsSidebar, 'active');
+        none(contents);
+        buttonPledeges.classList.add("active");
+        PledgesContent.style.display = "block";
+        fetchJSONData('http://localhost:3000/pledges').then(data => {
+            tbodyPledgesContent.innerHTML = '';
+            for (let i = 0; i < data.length; ++i) {
+                let obj = {};
+                obj.id = data[i].id;
+                fetchJSONData(`http://localhost:3000/campaigns/${data[i].campaignId}`).then(dataCompaign => {
+                    obj.campaignId = dataCompaign.title;
+                    fetchJSONData(`http://localhost:3000/users/${data[i].userId}`).then(dataUser => {
+                        obj.userId = dataUser.name;
+                        obj.amount = data[i].amount;
+                        tbodyPledgesContent.appendChild(createTablePledegs(obj));
+                    });
+                });
+            }
+        });
+        // fetchJSONData('http://localhost:3000/users').then(data => {
+        //     tbodyComapaignersContent.innerHTML = '';
+        //     for (let i = 0; i < data.length; ++i) {
+        //         if (data[i].role == "campaigner") {
+        //             if (!data[i].isApproved) {
+        // comapaignersData.push(data[i]);
+        // tbodyComapaignersContent.appendChild(createTableUser(data[i]));
+        //             }
+        //         }
+
+        //     }
+        // });
+
+    })// btn pledegs
+
+    buttonLogout.addEventListener('click', function () {
+        let confirmation = confirm("Are you sure you want to log out?");
+        if (confirmation) {
+            localStorage.removeItem("userLocal");
+            window.location.href = "http://localhost:3000/index.html";
+        }
+    });// btn logout
 
     roleSelect.addEventListener('change', function () {
         console.log(this.value);

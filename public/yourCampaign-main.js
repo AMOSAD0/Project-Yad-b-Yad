@@ -9,6 +9,7 @@ window.addEventListener('load', () => {
     let deadlineCampaign = document.getElementById('deadlineCampaign');
     let divInvestor = document.getElementById('divInvestor');
     let imageCampaign = document.getElementById('imageCampaign');
+    let btnLogout = document.getElementById('btnLogout');
     let userObj = JSON.parse(localStorage.getItem('userLocal'));
     let dataCampaigners = [];
     if (userObj) {
@@ -26,7 +27,7 @@ window.addEventListener('load', () => {
         }
     }
     else {
-       window.location.href = "http://localhost:3000/index.html";
+        window.location.href = "http://localhost:3000/index.html";
     }
 
     let obj = JSON.parse(localStorage.getItem('selectedCampaign'));
@@ -58,6 +59,15 @@ window.addEventListener('load', () => {
 
             }
         });
+
+
+    btnLogout.addEventListener("click", (e) => {
+        let confirmation = confirm("Are you sure you want to log out?");
+        if (confirmation) {
+            localStorage.removeItem("userLocal");
+            window.location.href = "http://localhost:3000/index.html";
+        }
+    });// logout
 
 
 

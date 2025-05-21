@@ -213,6 +213,68 @@ export function createTableCompains(obj) {
   return createTr;
 }
 
+export function createTablePledegs(obj) {
+  let createTr = document.createElement("tr");
+
+  let createTdid = document.createElement("td");
+  createTdid.innerText = obj.id;
+  createTr.appendChild(createTdid);
+
+  let createTdCamoaign = document.createElement("td");
+  createTdCamoaign.innerText = obj.campaignId;
+  createTr.appendChild(createTdCamoaign);
+
+  let createTduser = document.createElement("td");
+  createTduser.innerText = obj.userId;
+  createTr.appendChild(createTduser);
+
+  let createTdamount = document.createElement("td");
+  createTdamount.innerText = obj.amount;
+  createTr.appendChild(createTdamount);
+
+  // On clicking row, show campaign popup
+  // createTr.addEventListener("click", function () {
+  //   divPopup.style.display = "block";
+  //   popupName.innerText = obj.title;
+  //   popupEmail.style.display = "none";
+  //   if (obj.isApproved) {
+  //     popupBan.style.display = "none";
+  //   } else {
+  //     popupBan.style.display = "inline";
+  //     popupBan.className = "btn btn-success";
+  //     popupBan.innerText = "accept";
+
+  //     // Accept campaign
+  //     popupBan.addEventListener("click", function () {
+  //       fetchJSONData(`http://localhost:3000/campaigns/${obj.id}`, "PATCH", {
+  //         isApproved: true,
+  //       }).then(() => {
+  //         location.reload();
+  //       });
+  //     }); // pop accept
+  //   }
+
+  //   // Close popup
+  //   popupClose.addEventListener("click", function () {
+  //     divPopup.style.display = "none";
+  //   });
+
+  //   // Delete campaign
+  //   popupDelete.addEventListener("click", function () {
+  //     if (confirm("Are you sure you want to delete this campaigns ?")) {
+  //       fetchJSONData(
+  //         `http://localhost:3000/campaigns/${obj.id}`,
+  //         "DELETE"
+  //       ).then(() => {
+  //         location.reload();
+  //       });
+  //     }
+  //   });
+  // });
+  return createTr;
+}
+
+
 // Fetch and display dashboard data: users, campaigns, donation
 export function getDataDisplayDashBord(
   tbodyMainContent,

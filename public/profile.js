@@ -62,7 +62,7 @@ window.addEventListener("load", () => {
             data.countDonations,
             data.deadline,
             data.isApproved,
-            data.image,
+            data.img,
             data.category
           );
           obj.id = data.id;

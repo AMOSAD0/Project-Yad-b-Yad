@@ -59,6 +59,12 @@ window.addEventListener("load", function () {
             if (data[i].password === password.value) {
               loginSuccess = true;
               userObj = data[i];
+              
+              if(data[i].isActive == false){
+                alertDiv.innerText = "❌ Your account is not active. Please contact support.";
+                alertDiv.style.display = "block";
+                return;
+              }
 
               // Store logged-in user in localStorage
               this.localStorage.setItem("userLocal", JSON.stringify(userObj));
