@@ -72,14 +72,22 @@ window.addEventListener("load", function () {
           alertDiv.innerText = "✅ Login successful!";
           alertDiv.style.color = "green";
           alertDiv.style.display = "block";
+          let userObj = JSON.parse(
+            this.localStorage.getItem("userLocal"));
+          if (userObj.role == "campaigner") {
+            window.location.href = "http://localhost:3000/compaignDashBoard.html";
+          } else if (userObj.role == "backer") {
+            window.location.href = "http://localhost:3000/explore-page.html";
+          } else if (userObj.role == "admin") {
+            window.location.href = "http://localhost:3000/dashboard-admin-page.html";
+          }
 
           setTimeout(() => {
-            // window.location.href = "dashboard.html";
 
             // clear fields
             email.value = "";
             password.value = "";
-          }, 1000);
+          }, 500);
         } else if (emailFound) {
           // Email found but password wrong
           alertDiv.innerText = "❌ Password Incorrect";

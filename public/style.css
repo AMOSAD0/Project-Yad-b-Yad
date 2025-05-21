@@ -184,12 +184,12 @@ body {
   padding-left: 2.5rem;
   background-color: var(--bg-color);
   border-color: var(--secondary-color);
-  width: 15rem;
+  width: 13rem;
   transition: width 0.4s;
 }
 .home__header__nav__search__icon input:focus {
   border-color: var(--primary-color);
-  width: 17rem;
+  width: 15rem;
 }
 
 .home__header .listBtn {

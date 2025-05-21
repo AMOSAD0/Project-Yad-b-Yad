@@ -76,18 +76,24 @@ window.addEventListener("load", function () {
               name: name.value,
               role: role.value,
               isActive: true,
+              isApproved: false,
               email: email.value,
               password: password.value,
             }).then((data) => {
               localStorage.setItem("userLocal", JSON.stringify(data));
             });
 
-            alert.innerText = "✅ Login successful!";
+            alert.innerText = "✅ Sign up successful!";
             alert.style.color = "green";
             alert.style.display = "block";
+            // let userObj = JSON.parse(
+            //   localStorage.getItem("userLocal")
+            // );
             setTimeout(() => {
               alert.style.display = "none";
-            }, 1000);
+              window.location.href = "http://localhost:3000/index.html";
+              
+            }, 500);
           }
         });
       }

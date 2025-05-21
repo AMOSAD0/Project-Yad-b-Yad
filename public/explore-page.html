@@ -7,16 +7,14 @@
     <!--  font  -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
 
     <!--  Bootstrab  -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <!-- style sheet -->
     <link href="style.css" rel="stylesheet" />
     <link href="footer-explore-style.css" rel="stylesheet" />
@@ -32,24 +30,14 @@
       <nav class="home__header__nav" id="navbarNav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:3000/explore-page.html"
-              >Explore</a
-            >
+            <a class="nav-link"
+              href="http://localhost:3000/explore-page.html">Explore</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="http://localhost:3000/compaignDashBoard.html"
-              >Campaigns</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
+            <a id="btnProfile"
               class="nav-link"
               aria-disabled="true"
-              href="http://localhost:3000/profile.html"
-              >Profile</a
-            >
+              href="http://localhost:3000/profile.html">Profile</a>
           </li>
         </ul>
       </nav>
@@ -57,13 +45,27 @@
 
     <main class="container" id="explore">
       <header class="container row">
-        <div class="col-lg-10 col-md-7 col-6">
+        <div class="col-lg-6 col-md-7 col-6">
           <p class="font-black-600-30">Explore</p>
           <p class="font-gray-400-16">Where do you want to help</p>
         </div>
-        <div class="col-lg-2 col-md-5 col-6">
-          <div class="btn border font-black-600-14">Price</div>
-          <div class="btn border font-black-600-14">Date</div>
+        <div class="col-lg-6 col-md-5 col-6 ">
+          <div class="row">
+            <div class="col-md-12 col-lg-6 home__header__nav__search__icon">
+              <i class="fa-solid fa-magnifying-glass search__icon"></i>
+              <input id="inputSearch" type="search" placeholder="Search" />
+            </div>
+            <div class="col-md-12 col-lg-6">
+              <select id="selectCategory" class=" form-select" id="roleSelect">
+              <option selected disabled>Category</option>
+              <option selected value="healthcare">Healthcare </option>
+              <option value="education">Education </option>
+              <option value="business ">Business </option>
+              <option value="all">All</option>
+            </select>
+            </div>
+             
+          </div>
         </div>
       </header>
 
@@ -115,23 +117,6 @@
           </div>
         </div>
       </main>
-
-      <!-- <footer class="d-flex justify-content-center ">
-                <nav class="pagination-container">
-                    <div class="pagination">
-                        <a class="pagination-newer" href="#">PREV</a>
-                        <span class="pagination-inner">
-                            <a href="#">1</a>
-                            <a class="pagination-active" href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                        </span>
-                        <a class="pagination-older" href="#">NEXT</a>
-                    </div>
-                </nav>
-            </footer> -->
     </main>
     <script type="module" src="explore-page-main.js"></script>
   </body>

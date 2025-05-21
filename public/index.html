@@ -74,15 +74,9 @@
                     >Explore</a
                   >
                 </li>
+                
                 <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="http://localhost:3000/compaignDashBoard.html"
-                    >Campaigns</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
+                  <a id="btnProfile"
                     class="nav-link"
                     aria-disabled="true"
                     href="http://localhost:3000/profile.html"
@@ -93,10 +87,6 @@
             </div>
           </nav>
 
-          <div class="home__header__nav__search__icon">
-            <i class="fa-solid fa-magnifying-glass search__icon"></i>
-            <input type="search" placeholder="Search" />
-          </div>
 
           <button class="listBtn">
             <i class="open bx bx-list-ul"></i>
@@ -143,9 +133,9 @@
                 supporters on dashboard.
               </p>
               <a
-                href="http://localhost:3000/createCampaign.html"
+                href="http://localhost:3000/login.html"
                 class="login__leftBtn"
-                >Start a Campaign</a
+                >Login</a
               >
             </div>
           </div>
@@ -164,7 +154,7 @@
               <a
                 href="http://localhost:3000/signup.html"
                 class="login__rightBtn"
-                >Sign the petition</a
+                >Sign up</a
               >
             </div>
           </div>
@@ -296,38 +286,6 @@
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // JavaScript for Dropdown Menu
-      window.addEventListener("load", function () {
-        let listBtn = document.querySelector(".listBtn");
-        let menuWrapper = document.querySelector(".menu-wrapper");
-
-        // Toggle the 'active' class on the menu wrapper
-        listBtn.addEventListener("click", function () {
-          menuWrapper.classList.toggle("active");
-
-          listBtn.classList.toggle("active");
-        });
-      });
-
-      const scrollToTopBtn = document.querySelector(".home__go-down");
-      window.onscroll = function () {
-        if (
-          document.body.scrollTop > 300 ||
-          document.documentElement.scrollTop > 300
-        ) {
-          scrollToTopBtn.style.display = "block";
-        } else {
-          scrollToTopBtn.style.display = "none";
-        }
-      };
-
-      scrollToTopBtn.addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-    </script>
+    <script src="home-main.js"></script>
   </body>
 </html>

@@ -3,7 +3,9 @@ import {
   isPasswordStrong,
   createErrMsg,
   fetchJSONData,
+  createCardCampaign
 } from "./functions.js";
+import { campaign } from "./models/class-campaign.js";
 window.addEventListener("load", () => {
   let profileName = document.getElementById("profileName");
   let profileEmail = document.getElementById("profileEmail");
@@ -12,28 +14,70 @@ window.addEventListener("load", () => {
   let passInput = document.getElementById("pass");
   let inputEle = document.querySelectorAll(".inputEle");
   let editBtn = document.querySelector(".edit-btn");
+  let divCards = document.getElementById("divCards");
+  let btnLogout = document.getElementById("btnLogout");
+  let dataCampaigns = [];
 
   // Create error message elements and insert them after inputs
   let nameMsg = createErrMsg("Name must be at least 3 characters.");
   let passMsg = createErrMsg("Password must be at least 6 characters.");
   nameInput.after(nameMsg);
   passInput.after(passMsg);
+  let userObj = JSON.parse(localStorage.getItem("userLocal"));
 
-  let userObj = {
-    id: "2",
-    name: "Ahmed Mossad",
-    role: "admin",
-    isActive: true,
-    email: "ahmedadmin@example.com",
-    password: "ahmed1234",
-  };
+  if (userObj) {
+    switch (userObj.role) {
+      case "admin":
+        window.location.href = "http://localhost:3000/dashboard-admin-page.html";
+        break;
+      case "campaigner":
+        window.location.href = "http://localhost:3000/compaignDashBoard.html";
+        break;
+      // case "backer":
+      //   break;
+      // default:
+      //   break;
+    }
+  }
+  else {
+    window.location.href = "http://localhost:3000/login.html";
+  }
 
   profileName.innerText = userObj.name;
   profileEmail.innerText = userObj.email;
-
   nameInput.value = userObj.name;
   mailInput.value = userObj.email;
   passInput.value = userObj.password;
+
+  fetchJSONData('http://localhost:3000/pledges').then(data => {
+    data.filter((pledges) => {
+      if (pledges.userId == userObj.id) {
+        fetchJSONData(`http://localhost:3000/campaigns/${pledges.campaignId}`).then(data => {
+          let obj = new campaign(
+            data.title,
+            data.description,
+            data.creatorId,
+            data.goal,
+            data.donate,
+            data.countDonations,
+            data.deadline,
+            data.isApproved,
+            data.image,
+            data.category
+          );
+          obj.id = data.id;
+          dataCampaigns.push(obj);
+          let d = createCardCampaign(obj);
+          divCards.appendChild(d);
+        });// fetch campaigns data
+
+      }
+    });
+  });// fetch campaigns data
+
+
+
+
 
   let isEditing = false;
   editBtn.addEventListener("click", (e) => {
@@ -87,5 +131,16 @@ window.addEventListener("load", () => {
         }
       }
     }
-  });
-});
+  });// edite
+
+  btnLogout.addEventListener("click", (e) => {
+    let confirmation = confirm("Are you sure you want to log out?");
+    if (confirmation) {
+      localStorage.removeItem("userLocal");
+      window.location.href = "http://localhost:3000/index.html";
+    }
+  });// logout
+
+
+
+});//load

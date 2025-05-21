@@ -47,35 +47,33 @@
   </head>
   <body>
     <!-- start header -->
-    <header>
-      <div class="container">
-        <header class="home__header">
-          <div class="home__header__logo">
-            <a href="http://localhost:3000/">
-              <img src="./assets/icon/logo.svg" alt="logo image" />
-            </a>
-          </div>
-
-          <nav class="home__header__nav" id="navbarNav">
-            <ul class="nav">
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="http://localhost:3000/yourCompaign.html"
-                  >Your Campaign</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="http://localhost:3000/createCampaign.html"
-                  >Create Campaign</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </header>
+    <header class="home__header">
+      <div class="home__header__logo">
+        <a href="http://localhost:3000/">
+          <img src="./assets/icon/logo.svg" alt="logo image" />
+        </a>
       </div>
+
+      <nav class="home__header__nav" id="navbarNav">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link"
+              href="http://localhost:3000/explore-page.html">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a id="btnProfile"
+              class="nav-link"
+              aria-disabled="true"
+              href="http://localhost:3000/profile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a id="btnLogout"
+              class="nav-link"
+              aria-disabled="true"
+              href="http://localhost:3000/profile.html">Log out</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <!-- end header -->
 
@@ -137,12 +135,12 @@
     <section class="history">
       <div class="container" id="explore">
         <header class="container row">
-          <p class="font-black-600-30">Explore</p>
+          <p class="font-black-600-30">History</p>
         </header>
 
         <main class="container">
           <div id="divCards" class="row justify-content-start">
-            <div class="col-12 col-md-6 col-lg-4">
+            <!-- <div class="col-12 col-md-6 col-lg-4">
               <div class="card size-card">
                 <img src="./assets/image/imgCard.svg" class="card-img-top" />
                 <div class="card-body">
@@ -167,7 +165,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </main>
       </div>

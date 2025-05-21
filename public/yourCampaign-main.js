@@ -8,7 +8,26 @@ window.addEventListener('load', () => {
     let donateCampaign = document.getElementById('donateCampaign');
     let deadlineCampaign = document.getElementById('deadlineCampaign');
     let divInvestor = document.getElementById('divInvestor');
+    let imageCampaign = document.getElementById('imageCampaign');
+    let userObj = JSON.parse(localStorage.getItem('userLocal'));
     let dataCampaigners = [];
+    if (userObj) {
+        switch (userObj.role) {
+            case "admin":
+                window.location.href = "http://localhost:3000/dashboard-admin-page.html";
+                break;
+            case "campaigner":
+                break;
+            case "backer":
+                window.location.href = "http://localhost:3000/index.html";
+                break;
+            default:
+                break;
+        }
+    }
+    else {
+       window.location.href = "http://localhost:3000/index.html";
+    }
 
     let obj = JSON.parse(localStorage.getItem('selectedCampaign'));
     console.log(obj);
@@ -20,6 +39,7 @@ window.addEventListener('load', () => {
     goaleCampaign.innerText = `Goal: $${obj.goal}`;
     donateCampaign.innerText = obj.donate;
     deadlineCampaign.innerText = obj.deadline;
+    imageCampaign.src = obj.img;
 
     fetchJSONData('http://localhost:3000/pledges')
         .then(data => {

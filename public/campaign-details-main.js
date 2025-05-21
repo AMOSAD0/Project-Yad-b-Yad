@@ -9,7 +9,32 @@ window.addEventListener('load', function () {
     let donationsCampaign = document.getElementById('donationsCampaign');
     let divDonations = document.getElementById('divDonations');
     const campaignData = JSON.parse(this.localStorage.getItem('selectedCampaign'));
-
+    let imgCampian = document.getElementById('imgCampian');
+    let sectionFund = document.getElementById('sectionFund');
+    let inputFunding = document.getElementById('inputFunding');
+    let btnDonate = document.getElementById('btnDonate');
+    let isLoggedIn = false;
+    let userObj = JSON.parse(localStorage.getItem("userLocal"));
+    if (userObj) {
+        switch (userObj.role) {
+            case "admin":
+                window.location.href = "http://localhost:3000/dashboard-admin-page.html";
+                break;
+            case "campaigner":
+                window.location.href = "http://localhost:3000/compaignDashBoard.html";
+                break;
+            case "backer":
+                isLoggedIn = true;
+                sectionFund.style.display = "block";
+                break;
+            default:
+                break;
+        }
+    }
+    else {
+        isLoggedIn = false;
+        sectionFund.style.display = "none";
+    }
 
     if (campaignData) {
         fetchJSONData(`http://localhost:3000/users/${campaignData.creatorId}`).then(data => {
@@ -41,7 +66,7 @@ window.addEventListener('load', function () {
 
             });
         });
-
+        imgCampian.src = campaignData.img;
         titleCampaign.innerText = campaignData.title;
         descriptionCampaign.innerText = campaignData.description;
         goalCampaign.innerText = `$${campaignData.countDonations}/$${campaignData.goal}`;
@@ -49,4 +74,35 @@ window.addEventListener('load', function () {
         donationsCampaign.innerText = `${campaignData.donate} Donations`;
     }
 
-});
+    btnDonate.addEventListener('click', function () {
+        let amount = inputFunding.value;
+        amount = parseInt(amount);
+        if (amount > 0 && amount != "" && amount <=( campaignData.goal-campaignData.countDonations)) {
+            
+            let obj = {
+                userId: userObj.id,
+                campaignId: campaignData.id,
+                amount: amount
+            };
+            fetchJSONData("http://localhost:3000/pledges", "POST", obj).then(data => {
+                
+                let obj = {
+                    countDonations: campaignData.countDonations + amount,
+                    donate: campaignData.donate + 1
+                };
+                
+                fetchJSONData(`http://localhost:3000/campaigns/${campaignData.id}`, "PATCH", obj).then(data => {
+                   
+                });
+                 alert("Thank you for your donation!");
+                window.location.href = "http://localhost:3000/explore-page.html";
+
+            });
+        }
+        else {
+            alert("Please enter a valid amount");
+        }
+
+    });
+
+});// load

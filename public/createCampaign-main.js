@@ -1,4 +1,5 @@
-import { fetchJSONData, createErrMsg, isNotEmpty,convertImageBase64 } from "./functions.js";
+
+import { fetchJSONData, createErrMsg, isNotEmpty, convertImageBase64, compressAndConvertToBase64 } from "./functions.js";
 import { campaign } from "./models/class-campaign.js";
 
 window.addEventListener('load', function () {
@@ -24,15 +25,61 @@ window.addEventListener('load', function () {
     deadlineDate.after(deadlineDateErrMsg);
     let campaignImgValue ;
 
+    let userObj = JSON.parse(localStorage.getItem('userLocal'));
+
+    if (userObj) {
+        switch (userObj.role) {
+            case "admin":
+                window.location.href = "http://localhost:3000/dashboard-admin-page.html";
+                break;
+            case "campaigner":
+                break;
+            case "backer":
+                window.location.href = "http://localhost:3000/index.html";
+                break;
+            default:
+                break;
+        }
+    }
+    else {
+        window.location.href = "http://localhost:3000/index.html";
+    }
+    if (userObj.isApproved == false) {
+        window.location.href = "http://localhost:3000/campaign-details-page.html";
+    }
+
+    // let base64Image = "";
+    // campaignImg.addEventListener('change', async (e) => {
+    //     const file = e.target.files[0];
+    //     const fileType = file.type;
+
+
+    //     if (file) {
+    //         try {
+    //             base64Image = await compressAndConvertToBase64(file, fileType);
+    //             campaignImgValue = base64Image;
+    //             console.log("Image compressed and converted to base64");
+
+    //         } catch (error) {
+    //             console.error("Error processing image:", error);
+    //             base64Image = "";
+    //         }
+    //     } else {
+    //         base64Image = "";
+    //     }
+    // });
+
     campaignImg.addEventListener('change', function (e) {
         let file = e.target.files[0];
+
         if (file) {
-             convertImageBase64(file).then((img)=>{
+            convertImageBase64(file).then((img) => {
                 campaignImgValue = img;
-             });
+                console.log(campaignImgValue);
+            });
         }
-            
-        });//img 
+
+    });//img 
 
     createCampaignForm.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -41,16 +88,13 @@ window.addEventListener('load', function () {
         let shortDescValue = shortDesc.value;
         let goalAmountValue = goalAmount.value;
         let deadlineDateValue = deadlineDate.value;
-        
 
-        
-        
 
-        if (isNotEmpty(campaignTitleValue) && isNotEmpty(categoryValue) && isNotEmpty(shortDescValue)  && isNotEmpty(goalAmountValue) && isNotEmpty(deadlineDateValue)) {
+        if (isNotEmpty(campaignTitleValue) && isNotEmpty(categoryValue) && isNotEmpty(shortDescValue) && isNotEmpty(goalAmountValue) && isNotEmpty(deadlineDateValue)) {
             let newCampaign = new campaign(
                 campaignTitleValue,
                 shortDescValue,
-                "4",
+                userObj.id,
                 goalAmountValue,
                 0,
                 0,
@@ -60,23 +104,26 @@ window.addEventListener('load', function () {
                 categoryValue
             );
             console.log(newCampaign);
-          
-            fetchJSONData('http://localhost:3000/campaigns','POST',newCampaign)
-                .then(function(data){
-                    
-                
-                        divAlert.style.display = 'block';
-                        divAlert.innerText = 'Campaign created successfully';
-                        setTimeout(() => {
-                            divAlert.style.display = 'none';
-                        }, 4000);
-                        // window.location.href = 'index.html';
-                    
+
+            fetchJSONData('http://localhost:3000/campaigns', 'POST', newCampaign)
+                .then(function () {
+
+                    divAlert.style.display = 'block';
+                    divAlert.innerText = 'Campaign created successfully';
+                    let i = document.createElement("img");
+                    i.src = campaignImgValue;
+                    divAlert.after(i);
+                    setTimeout(() => {
+                        divAlert.style.display = 'none';
+                        window.location.href = 'http://localhost:3000/compaignDashBoard.html';
+                    }, 4000);
+
+
                 })
-                .catch(function(err){
+                .catch(function (err) {
                     console.error(err);
                 });
-                
+
 
         } else {
             if (!isNotEmpty(campaignTitleValue)) {

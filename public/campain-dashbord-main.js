@@ -4,10 +4,42 @@ window.addEventListener('load', () => {
 
     let countCampaigns =document.getElementById('countCampaigns');
     let divCampaigns = document.getElementById('divCampaigns');
+    let divAlert = document.querySelector('.alert');
+    let userObj = JSON.parse(localStorage.getItem('userLocal'));
     let dataCampaigns = [];
+
+    if (userObj) {
+        switch (userObj.role) {
+            case "admin":
+                window.location.href = "http://localhost:3000/dashboard-admin-page.html";
+                break;
+            case "campaigner":
+                break;
+            case "backer":
+                window.location.href = "http://localhost:3000/index.html";
+                break;
+            default:
+                break;
+        }
+    }
+    else {
+       window.location.href = "http://localhost:3000/index.html";
+    }
+
+    if(userObj.isApproved == false){
+        divAlert.style.display = "block";
+        divAlert.innerText = "Your account is not approved yet. Please wait for the admin to approve your account.";
+        setTimeout(() => {
+            divAlert.style.display = "none";
+            localStorage.removeItem('userLocal');
+            window.location.href = "http://localhost:3000/index.html";
+        }, 5000);
+    }
+
+
     fetchJSONData('http://localhost:3000/campaigns')
     .then(data => {
-        dataCampaigns = data.filter(campaign => campaign.creatorId == '4');
+        dataCampaigns = data.filter(campaign => campaign.creatorId == userObj.id);
         console.log(dataCampaigns);
         countCampaigns.innerText=dataCampaigns.length;
         for (let i = 0; i < dataCampaigns.length; i++) {
@@ -20,9 +52,10 @@ window.addEventListener('load', () => {
                 dataCampaigns[i].countDonations,
                 dataCampaigns[i].deadline,
                 dataCampaigns[i].isApproved,
-                dataCampaigns[i].image,
+                dataCampaigns[i].img,
                 dataCampaigns[i].category
             );
+            
             obj.id = dataCampaigns[i].id;
             let cardCampaign = createCardCampaign(obj,"campaign-dashbord");
             divCampaigns.appendChild(cardCampaign);

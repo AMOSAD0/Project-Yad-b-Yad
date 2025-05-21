@@ -308,7 +308,7 @@ export function createCardCampaign(obj,page="") {
     createDiv.innerHTML =
         `
     <div class="card size-card">
-                            <img src="./assets/image/imgCard.svg"
+                            <img src="${obj.img}"
                                 class="card-img-top">
                             <div class="card-body">
                                 <p class="card-title font-black-600-24">
@@ -376,3 +376,35 @@ export async function convertImageBase64(file) {
     });
 }
 
+
+   export function compressAndConvertToBase64(file,fileType, maxWidth = 800, quality = 0.7) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = (event) => {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    let width = img.width;
+                    let height = img.height;
+                    if (width > maxWidth) {
+                        height = (maxWidth / width) * height;
+                        width = maxWidth;
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+                    const compressedBase64 = canvas.toDataURL(fileType, quality);
+                    resolve(compressedBase64);
+                };
+                img.onerror = (error) => {
+                    reject(error);
+                };
+            };
+            reader.onerror = (error) => {
+                reject(error);
+            };
+        });
+    }

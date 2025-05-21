@@ -32,40 +32,34 @@ window.addEventListener('load', () => {
     let popupBan = document.getElementById('popupBan');
     let popupDelete = document.getElementById('popupDelete');
     let popupName = document.getElementById('popupName');
+     let userObj = JSON.parse(localStorage.getItem('userLocal'));
     let usersData = [];
     let comapaignsData = [];
     let comapaignersData = [];
 
+    if (userObj) {
+        switch (userObj.role) {
+            case "admin":
+                break;
+            case "campaigner":
+                window.location.href = "http://localhost:3000/compaignDashBoard.html";
+                break;
+            case "backer":
+                window.location.href = "http://localhost:3000/index.html";
+                break;
+            default:
+                break;
+        }
+    }
+    else {
+       window.location.href = "http://localhost:3000/index.html";
+    }
 
     buttonDashbord.classList.add("active");
     mainContent.style.display = "block";
     usersData = getDataDisplayDashBord(tbodyMainContent, valueUsers, valueCampigns, valueDonations);
 
-    // buttonDashbord.classList.add("active");
-    // mainContent.style.display = "block";
-    // fetchJSONData('http://localhost:3000/users').then(data => {
-    //     tbodyMainContent.innerHTML = '';
-    //     usersData = [];
-    //     console.log(data);
-    //     for (let i = 0; i < data.length; ++i) {
-    //         usersData.push(data[i]);
-    //         tbodyMainContent.appendChild(createTableUser(data[i]));
-
-    //     }
-
-    //     valueUsers.innerText = usersData.length;
-    // });
-    // fetchJSONData("http://localhost:3000/campaigns").then(data => {
-    //     valueCampigns.innerText = data.length;
-    // });
-    // fetchJSONData("http://localhost:3000/pledges").then(data => {
-    //     let money = 0;
-    //     for (let i = 0; i < data.length; ++i) {
-    //         money = money + data[i].amount;
-    //     }
-    //     valueDonations.innerText = `$${money}`;
-    // });
-
+   
     buttonSearch.addEventListener('click', function () {
         if (inputSearch.value == '') {
             console.log('nullll');
