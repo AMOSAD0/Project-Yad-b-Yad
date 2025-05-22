@@ -158,18 +158,7 @@ window.addEventListener('load', () => {
                 });
             }
         });
-        // fetchJSONData('http://localhost:3000/users').then(data => {
-        //     tbodyComapaignersContent.innerHTML = '';
-        //     for (let i = 0; i < data.length; ++i) {
-        //         if (data[i].role == "campaigner") {
-        //             if (!data[i].isApproved) {
-        // comapaignersData.push(data[i]);
-        // tbodyComapaignersContent.appendChild(createTableUser(data[i]));
-        //             }
-        //         }
-
-        //     }
-        // });
+        
 
     })// btn pledegs
 

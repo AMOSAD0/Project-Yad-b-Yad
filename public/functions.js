@@ -124,6 +124,7 @@ export function createTableUser(obj) {
       popupBan.addEventListener("click", function () {
         fetchJSONData(`http://localhost:3000/users/${obj.id}`, "PATCH", {
           isApproved: true,
+          isActive :true
         }).then(() => {
           location.reload();
 
@@ -341,21 +342,7 @@ export function createErrMsg(msg) {
 }
 
 
-//         valueUsers.innerText = usersData.length;
-//     });
-//     fetchJSONData("http://localhost:3000/campaigns").then(data => {
-//         valueCampigns.innerText = data.length;
-//     });
-//     fetchJSONData("http://localhost:3000/pledges").then(data => {
-//         let money = 0;
-//         for (let i = 0; i < data.length; ++i) {
-//             money = money + data[i].amount;
-//         }
-//         valueDonations.innerText = `$${money}`;
-//     });
-//     console.log(usersData);
-//     return usersData;
-// }
+
 
 export function createCardCampaign(obj,page="") {
     // let createDiv = document.createElement('div');
